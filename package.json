@@ -2,17 +2,25 @@
   "name": "schoolbus",
   "version": "1.0.0",
   "description": "",
-  "main": "connect.js",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+    "test": "jest",
+    "build": "turbo run build",
+    "dev": "turbo run dev --parallel",
+    "lint": "turbo run lint",
+    "test:ci": "jest -u --passWithNoTests --coverageDirectory .github/coverage",
+    "format": "prettier --config .prettierrc.js --write \"**/*.{ts,tsx,md}\""
+    },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sambacha/schoolbus.git"
   },
   "keywords": [],
-  "author": "sam bacha",
-  "license": "ISC",
+  "author": "SEE CONTRIBUTORS",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/sambacha/schoolbus/issues"
   },
@@ -21,8 +29,16 @@
     "@tsconfig/recommended": "^1.0.1",
     "@types/node": "^14",
     "prettier": "^2.5.1",
+    "jest": "27.2.4",
+    "fs-extra": "^10.0.1",
+    "glob": "^7.2.0",
+    "prompt": "^1.2.0",
+    "size-limit": "^6.0.3",
+    "ts-jest": "^27.1.3",
+    "ts-node": "^10.4.0",
     "tslib": "^2.3.1",
     "turbo": "^1.1.5",
     "typescript": "^4.6.2"
-  }
+  },
+"packageManager": "yarn@1.19.0"
 }

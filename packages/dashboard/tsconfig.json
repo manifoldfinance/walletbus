@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "jsx": "react-jsx",
+    "incremental": true,
     "sourceMap": true,
     "declaration": true,
     "esModuleInterop": true,
@@ -14,7 +15,7 @@
     "outDir": "./build",
     "strictBindCallApply": true,
     "strictNullChecks": true,
-    "rootDir": "./src",
+    "rootDir": ".",
     "baseUrl": ".",
     "types": ["react", "node"],
     "allowJs": true,
@@ -25,5 +26,5 @@
     "isolatedModules": true,
     "noEmit": true
   },
-  "include": ["src"]
+  "include": ["src", "bin"]
 }

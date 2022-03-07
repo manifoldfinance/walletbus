@@ -6,3 +6,29 @@ yarn-error.log
 .DS_Store
 *.cache/
 coverage/
+packages/dashboard/lib/**/*
+packages/dashboard/
+**/.turbo/turbo-build.log
+
+# local env files
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# turbo
+.turbo
+
+packages/**/dist/*.js.map
+packages/**/dist/*.js
+packages/**/dist/*.d.ts
+packages/**/dist/**
+packages/**/dist/cjs/*.js
+packages/**/dist/cjs/*.js.map
+packages/**/dist/cjs/*.d.ts
+packages/magic/dist/cjs
+
+packages/**/package-lock.json
+package-lock.json
+tsbuildinfo
+*.tsbuildinfo

@@ -2,6 +2,7 @@
   "compilerOptions": {
     "jsx": "react",
     "sourceMap": true,
+    "incremental": true,
     "declaration": true,
     "esModuleInterop": true,
     "lib": ["esnext", "dom"],
