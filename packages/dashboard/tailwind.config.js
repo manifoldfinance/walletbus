@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        oswald: ["Oswald"]
+        oswald: ["Inter"]
       },
       colors: {
         "truffle-blue": "#3fe0c5",

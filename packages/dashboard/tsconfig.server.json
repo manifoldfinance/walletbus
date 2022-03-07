@@ -14,7 +14,7 @@
     "outDir": "./dist",
     "strictBindCallApply": true,
     "strictNullChecks": true,
-    "rootDir": ".",
+    "rootDir": "./src",
     "baseUrl": ".",
     "types": ["jest", "react", "node"]
   },
