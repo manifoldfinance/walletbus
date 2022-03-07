@@ -1,17 +1,17 @@
-# @truffle/dashboard-provider
+# @securerpc/local-provider
 
-@truffle/dashboard-provider enables communication between command-line or desktop applications and browser-based Ethereum wallets such as Metamask. One important use case is that it allows you to use your Metamask wallet with smart contract development tools such as Truffle.
+@securerpc/local-provider enables communication between command-line or desktop applications and browser-based Ethereum wallets such as Metamask. One important use case is that it allows you to use your Metamask wallet with smart contract development tools such as Truffle.
 
-**Note**: @truffle/dashboard-provider automatically starts and stops a @truffle/dashboard instance. To have more control over this dashboard instance, please use the `truffle dashboard` command and its associated RPC URL instead of the @truffle/dashboard-provider.
+**Note**: @securerpc/local-provider automatically starts and stops a @securerpc/dashboard instance. To have more control over this dashboard instance, please use the `truffle dashboard` command and its associated RPC URL instead of the @securerpc/local-provider.
 
 ## Installation
 
 ```
-npm install @truffle/dashboard-provider
+npm install @securerpc/local-provider
 ```
 
 ```
-yarn add @truffle/dashboard-provider
+yarn add @securerpc/local-provider
 ```
 
 ## Usage
@@ -21,7 +21,7 @@ The dashboard-provider can be used in place where you would use any other web3 p
 ### Ethers.js
 
 ```js
-const { DashboardProvider } = require("@truffle/dashboard-provider");
+const { DashboardProvider } = require("@securerpc/local-provider");
 const { providers } = require("ethers");
 
 const dashboardProvider = new DashboardProvider();
@@ -33,7 +33,7 @@ const [account] = await ethersProvider.listAccounts();
 ### Web3.js
 
 ```js
-const { DashboardProvider } = require("@truffle/dashboard-provider");
+const { DashboardProvider } = require("@securerpc/local-provider");
 const Web3 = require("web3");
 
 const dashboardProvider = new DashboardProvider();
@@ -79,7 +79,7 @@ When setting the dashboard-provider's `verbose` option to `true`, debug output i
 
 ## Development
 
-The entire dashboard-provider stack consists of three separate packages within the `trufflesuite/truffle` repository. `@truffle/dashboard-provider` contains the actual `Provider` interface that forwards requests to the dashboard. The `@truffle/dashboard` package contains a React app that receives incoming requests, displays them to the user, and then forwards them to the browser's injected web3 wallet. Finally `@truffle/dashboard-message-bus` ties the two packages together with a message bus that relays requests and responses between the dashboard-provider and the dashboard, using multiple WebSocket connections.
+The entire dashboard-provider stack consists of three separate packages within the `trufflesuite/truffle` repository. `@securerpc/local-provider` contains the actual `Provider` interface that forwards requests to the dashboard. The `@securerpc/dashboard` package contains a React app that receives incoming requests, displays them to the user, and then forwards them to the browser's injected web3 wallet. Finally `@securerpc/msgbus` ties the two packages together with a message bus that relays requests and responses between the dashboard-provider and the dashboard, using multiple WebSocket connections.
 
 Refer to the READMEs of the other packages for more information on those components.
 

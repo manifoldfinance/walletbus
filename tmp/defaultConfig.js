@@ -1,7 +1,7 @@
 const { detectConfigOrDefault } = require("../../utils/utils");
 
 module.exports = async function (options) {
-  const { DashboardServer } = require("@truffle/dashboard");
+  const { DashboardServer } = require("@securerpc/dashboard");
   const address = require("address");
 
   const config = detectConfigOrDefault(options);

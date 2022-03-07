@@ -4,7 +4,7 @@ import {
   isDashboardProviderMessage,
   jsonToBase64,
   Message
-} from "@truffle/dashboard-message-bus";
+} from "@securerpc/msgbus";
 import type { JSONRPCRequestPayload } from "ethereum-protocol";
 import { promisify } from "util";
 import type WebSocket from "ws";

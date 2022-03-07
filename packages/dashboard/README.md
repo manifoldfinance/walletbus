@@ -4,14 +4,14 @@ The Truffle Dashboard is the frontend that is used in certain parts of the Truff
 
 ## Installation & Usage
 
-There is usually no reason to install the @truffle/dashboard package directly, since it will be started automatically when running `truffle dashboard` or when using @truffle/dashboard-provider. But if you are developing extensions to the Truffle Dashboard it can be useful to install the dashboard.
+There is usually no reason to install the @securerpc/dashboard package directly, since it will be started automatically when running `truffle dashboard` or when using @securerpc/local-provider. But if you are developing extensions to the Truffle Dashboard it can be useful to install the dashboard.
 
 ```
-npm install @truffle/dashboard
+npm install @securerpc/dashboard
 ```
 
 ```
-yarn add @truffle/dashboard
+yarn add @securerpc/dashboard
 ```
 
 This package can then be used to start a new dashboard process either in the foreground or background.
@@ -20,7 +20,7 @@ This package can then be used to start a new dashboard process either in the for
 const {
   DashboardServer,
   startDashboardInBackground
-} = require("@truffle/dashboard");
+} = require("@securerpc/dashboard");
 
 const port = 24012;
 const host = "localhost";
@@ -69,7 +69,7 @@ When setting the dashboard server's `verbose` option to `true`, debug output is 
 
 ### Architecture
 
-The `@truffle/dashboard` package contains two separate source code directories, one of them is the `lib/` directory which contains the "library" code (such as the `DashboardProviderServer` class). The other is the `src/` directory which contains the React frontend code. When running `yarn build` both are compiled and combined so that the `DashboardServer` can serve the static dashboard page.
+The `@securerpc/dashboard` package contains two separate source code directories, one of them is the `lib/` directory which contains the "library" code (such as the `DashboardProviderServer` class). The other is the `src/` directory which contains the React frontend code. When running `yarn build` both are compiled and combined so that the `DashboardServer` can serve the static dashboard page.
 
 Besides serving the static dashboard web page, the `DashboardServer` also runs a "port discovery" API at `GET /ports`, which returns the publish and subscribe ports that can be used to connect to the associated message bus. By default, it also runs an RPC endpoint at `POST /rpc` that forwards any RPC requests to the message bus (and from there on to the dashboard).
 
@@ -91,8 +91,8 @@ yarn start
 
 When creating new integrations for the dashboard, there are three places to add code.
 
-- A new message type in the `@truffle/dashboard-message-bus` package.
-- Integration code in the React frontend in the `@truffle/dashboard` package.
+- A new message type in the `@securerpc/msgbus` package.
+- Integration code in the React frontend in the `@securerpc/dashboard` package.
 - Integration code in the Truffle CLI - this can be a completely new package, or added to an existing package.
 
 In general the Truffle CLI sends requests to the dashboard, which uses the provided information and sends a response back. But for more complex integrations it may be required for the dashboard to send requests to the Truffle CLI, or for the Truffle CLI to send information without expecting a response back. In those cases the code on either side of the integration should be updated accordingly.

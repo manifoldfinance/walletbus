@@ -2244,9 +2244,9 @@
   resolved "https://registry.yarnpkg.com/@tootallnate/once/-/once-1.1.2.tgz#ccb91445360179a04e7fe6aff78c00ffc1eeaf82"
   integrity sha512-RbzJvlNzmRq5c3O09UipeuXno4tA1FE6ikOjxZK0tuxVv3412l64l5t1W5pj4+rJq9vpkm/kwiR07aZXnsKPxw==
 
-"@truffle/dashboard-message-bus@^0.1.0":
+"@securerpc/msgbus@^0.1.0":
   version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@truffle/dashboard-message-bus/-/dashboard-message-bus-0.1.0.tgz#bf5bc9c9eab5c1f7a09ccf2e08109768e2f00d02"
+  resolved "https://registry.yarnpkg.com/@securerpc/msgbus/-/dashboard-message-bus-0.1.0.tgz#bf5bc9c9eab5c1f7a09ccf2e08109768e2f00d02"
   integrity sha512-rJltPUeV1gqdcR+Zln/wnYcMjlBgy+gcSW8REARElL+885oTdDhohfV0XgCaZkgyNBqMNfJQKX7fn05A4UT/yA==
   dependencies:
     "@types/ws" "^7.2.0"
@@ -2256,12 +2256,12 @@
     promise.any "^2.0.2"
     ws "^7.2.0"
 
-"@truffle/dashboard@^0.1.1":
+"@securerpc/dashboard@^0.1.1":
   version "0.1.1"
-  resolved "https://registry.yarnpkg.com/@truffle/dashboard/-/dashboard-0.1.1.tgz#45e64d232b602c87e93cbe7915030c769f2bbcb6"
+  resolved "https://registry.yarnpkg.com/@securerpc/dashboard/-/dashboard-0.1.1.tgz#45e64d232b602c87e93cbe7915030c769f2bbcb6"
   integrity sha512-0R27DsyI1JByjFfYRe0y9nBhvWdy2EtBclQtqfFgzQM0ui2sY1WkxQ7jrjgsUvxp9aip7RVbUe1etUpoWxymcw==
   dependencies:
-    "@truffle/dashboard-message-bus" "^0.1.0"
+    "@securerpc/msgbus" "^0.1.0"
     cors "^2.8.5"
     debug "^4.3.2"
     express "^4.17.1"
