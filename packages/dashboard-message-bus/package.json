@@ -1,5 +1,5 @@
 {
-  "name": "web3-dashboard-message-bus",
+  "name": "@securerpc/msgbus",
   "version": "0.1.0",
   "description": "Message bus that handles communication between the Dashboard and its components",
   "main": "dist/lib/index.js",
