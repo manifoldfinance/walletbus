@@ -14,8 +14,8 @@ import {
   getMessageBusPorts,
   base64ToJson,
   LogMessage
-} from "@truffle/dashboard-message-bus";
-import { startDashboardInBackground } from "@truffle/dashboard";
+} from "@securerpc/msgbus";
+import { startDashboardInBackground } from "@securerpc/dashboard";
 import { timeout } from "promise-timeout";
 import debugModule from "debug";
 

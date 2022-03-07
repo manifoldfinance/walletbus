@@ -1,5 +1,5 @@
 {
-  "name": "@truffle/dashboard-provider",
+  "name": "@securerpc/local-provider",
   "version": "0.1.1",
   "description": "Web3 provider that uses a browser-based web3 wallet through the Truffle Dasboard",
   "main": "dist/lib/index.js",
@@ -46,8 +46,8 @@
     "web3": "^1.6.1"
   },
   "dependencies": {
-    "@truffle/dashboard": "^0.1.1",
-    "@truffle/dashboard-message-bus": "^0.1.0",
+    "@securerpc/dashboard": "^0.1.1",
+    "@securerpc/msgbus": "^0.1.0",
     "debug": "^4.3.3",
     "delay": "^5.0.0",
     "isomorphic-ws": "^4.0.1",
