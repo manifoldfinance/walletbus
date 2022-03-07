@@ -14,7 +14,7 @@ function ConnectNetwork({ confirm }: Props) {
   const injectedConnector = new InjectedConnector({});
 
   const connectBody =
-    "Please connect your wallet to use the Truffle Dashboard Provider.";
+    "Please connect your wallet to use the Dashboard Provider.";
 
   const connectButton = (
     <Button text="Connect Wallet" onClick={() => activate(injectedConnector)} />

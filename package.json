@@ -1,0 +1,28 @@
+{
+  "name": "schoolbus",
+  "version": "1.0.0",
+  "description": "",
+  "main": "connect.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sambacha/schoolbus.git"
+  },
+  "keywords": [],
+  "author": "sam bacha",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sambacha/schoolbus/issues"
+  },
+  "homepage": "https://github.com/sambacha/schoolbus#readme",
+  "devDependencies": {
+    "@tsconfig/recommended": "^1.0.1",
+    "@types/node": "^14",
+    "prettier": "^2.5.1",
+    "tslib": "^2.3.1",
+    "turbo": "^1.1.5",
+    "typescript": "^4.6.2"
+  }
+}

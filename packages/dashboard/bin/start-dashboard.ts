@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import { base64ToJson } from "@truffle/dashboard-message-bus";
 import { DashboardServer } from "../lib/DashboardServer";
 

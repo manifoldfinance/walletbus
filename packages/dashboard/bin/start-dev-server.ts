@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import { DashboardServer } from "../lib/DashboardServer";
 
 const options = {
