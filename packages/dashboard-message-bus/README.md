@@ -1,16 +1,16 @@
-# @securerpc/msgbus
+# `@securerpc/msgbus`
 
-:warning: **This is a middleware package and should only be used when developing
-integrations for the truffle dashboard** :warning:
+> `@securerpc/msgbus` manages the communication between the Truffle Dashboard and any other Truffle components, such as @securerpc/local-provider.
 
-The `@securerpc/msgbus` manages the communication between the Truffle Dashboard
-and any other Truffle components, such as @securerpc/local-provider.
+- [@securerpc/msgbus](#--securerpc-msgbus-)
+  * [Development](#development)
+    + [Architecture](#architecture)
+    + [Adding new message types](#adding-new-message-types)
 
-## Installation
 
-End users should never have to install this message bus as it is used under the
-hood by other packages. If you are building a package that needs to interface
-with the Dashboard or message bus, you can install this package from NPM.
+
+
+## Development
 
 ```
 npm install @securerpc/msgbus
@@ -19,8 +19,6 @@ npm install @securerpc/msgbus
 ```
 yarn add @securerpc/msgbus
 ```
-
-## Usage
 
 A new message bus can be started by instantiating a new `DashboardMessageBus`
 and calling the `start()` function on it. This should almost always be done in
@@ -32,8 +30,6 @@ The `@securerpc/msgbus` does contain a bunch of exported utilities used for
 connecting and communicating with the message bus that can be used directly by
 other packages, although this should still only be used when developing new
 packages that interface with the dashboard, rather than end-user applications.
-
-## Development
 
 ### Architecture
 
@@ -48,14 +44,6 @@ connected subscribers as well. The message bus stays running as long as there is
 at least one publisher _or_ subscriber connected. As soon as the last one
 disconnects, the message bus shuts down.
 
-### Testing
-
-This package is meant to be used with the `@securerpc/dashboard` package. So
-manual testing is most likely done through the dashboard package. Some automated
-tests are defined in the `test/` folder, but these still need to be expanded.
-The message bus functionality is also tested indirectly by the automated tests
-in the `@securerpc/local-provider` and `@securerpc/dashboard` packages.
-
 ### Adding new message types
 
 Right now there are very few message types. The most important one is
@@ -69,3 +57,7 @@ To add additional message types, the interface for the new message type should
 be defined in this package under `lib/message/types.ts`. To use these new messge
 formats, support needs to be added to any consuming packages such as
 `@securerpc/dashboard` as well.
+
+## License
+
+MIT
