@@ -1,6 +1,8 @@
-#!/usr/bin/env node
-import { base64ToJson } from "@truffle/dashboard-message-bus";
-import { DashboardServer } from "../lib/DashboardServer";
+/**
+ * [startDashboard]
+ */
+import { base64ToJson } from "@securerpc/msgbus";
+import { DashboardServer } from "../lib/interfaceServer";
 
 const [optionsBase64] = process.argv.slice(2);
 const options = base64ToJson(optionsBase64);
