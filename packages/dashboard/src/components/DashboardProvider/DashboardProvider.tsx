@@ -1,16 +1,16 @@
-import WebSocket from "isomorphic-ws";
-import { useEffect } from "react";
-import { useWeb3React } from "@web3-react/core";
-import { providers } from "ethers";
+import WebSocket from 'isomorphic-ws';
+import { useEffect } from 'react';
+import { useWeb3React } from '@web3-react/core';
+import { providers } from 'ethers';
 import {
   handleDashboardProviderRequest,
   isInteractiveRequest,
   isUnsupportedRequest,
-  respondToUnsupportedRequest
-} from "../../utils/utils";
-import Card from "../common/Card";
-import IncomingRequest from "./IncomingRequest";
-import type { DashboardProviderMessage } from "@truffle/dashboard-message-bus";
+  respondToUnsupportedRequest,
+} from '../../utils/utils';
+import Card from '../common/Card';
+import IncomingRequest from './IncomingRequest';
+import type { DashboardProviderMessage } from '@truffle/dashboard-message-bus';
 
 interface Props {
   paused: boolean;
@@ -18,7 +18,7 @@ interface Props {
   setRequests: (
     requests:
       | DashboardProviderMessage[]
-      | ((requests: DashboardProviderMessage[]) => DashboardProviderMessage[])
+      | ((requests: DashboardProviderMessage[]) => DashboardProviderMessage[]),
   ) => void;
   socket: WebSocket;
 }
@@ -28,8 +28,8 @@ function DashboardProvider({ paused, socket, requests, setRequests }: Props) {
 
   useEffect(() => {
     const removeFromRequests = (id: number) => {
-      setRequests(previousRequests =>
-        previousRequests.filter(request => request.id !== id)
+      setRequests((previousRequests) =>
+        previousRequests.filter((request) => request.id !== id),
       );
     };
 
@@ -37,7 +37,7 @@ function DashboardProvider({ paused, socket, requests, setRequests }: Props) {
     if (paused) return;
 
     // Automatically respond with an error for unsupported requests
-    requests.filter(isUnsupportedRequest).forEach(request => {
+    requests.filter(isUnsupportedRequest).forEach((request) => {
       respondToUnsupportedRequest(request, socket);
       removeFromRequests(request.id);
     });
@@ -45,10 +45,10 @@ function DashboardProvider({ paused, socket, requests, setRequests }: Props) {
     // Automatically handle all non-interactive requests
     requests
       .filter(
-        request =>
-          !isInteractiveRequest(request) && !isUnsupportedRequest(request)
+        (request) =>
+          !isInteractiveRequest(request) && !isUnsupportedRequest(request),
       )
-      .forEach(request => {
+      .forEach((request) => {
         handleDashboardProviderRequest(request, library.provider, socket);
         removeFromRequests(request.id);
       });
@@ -58,7 +58,7 @@ function DashboardProvider({ paused, socket, requests, setRequests }: Props) {
     account && library && socket
       ? requests
           .filter(isInteractiveRequest)
-          .map(request => (
+          .map((request) => (
             <IncomingRequest
               request={request}
               setRequests={setRequests}

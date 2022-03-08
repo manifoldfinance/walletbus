@@ -1,0 +1,9 @@
+dist/
+build/
+*.js
+*.map
+*.css
+*.scss
+*.html
+*.svg
+*.json

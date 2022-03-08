@@ -1,19 +1,19 @@
-import WebSocket from "isomorphic-ws";
+import WebSocket from 'isomorphic-ws';
 import {
   DashboardProviderMessage,
   connectToMessageBusWithRetries,
   isDashboardProviderMessage,
   isInvalidateMessage,
   Message,
-  base64ToJson
-} from "@truffle/dashboard-message-bus";
-import { useWeb3React } from "@web3-react/core";
-import { useEffect, useState } from "react";
-import { getPorts } from "./utils/utils";
-import Header from "./components/Header/Header";
-import DashboardProvider from "./components/DashboardProvider/DashboardProvider";
-import ConnectNetwork from "./components/ConnectNetwork";
-import ConfirmNetworkChanged from "./components/ConfirmNetworkChange";
+  base64ToJson,
+} from '@truffle/dashboard-message-bus';
+import { useWeb3React } from '@web3-react/core';
+import { useEffect, useState } from 'react';
+import { getPorts } from './utils/utils';
+import Header from './components/Header/Header';
+import DashboardProvider from './components/DashboardProvider/DashboardProvider';
+import ConnectNetwork from './components/ConnectNetwork';
+import ConfirmNetworkChanged from './components/ConfirmNetworkChange';
 
 function Dashboard() {
   const [paused, setPaused] = useState<boolean>(false);
@@ -43,34 +43,36 @@ function Dashboard() {
     const { subscribePort } = await getPorts();
     const connectedSocket = await connectToMessageBusWithRetries(
       subscribePort,
-      messageBusHost
+      messageBusHost,
     );
 
     connectedSocket.addEventListener(
-      "message",
+      'message',
       (event: WebSocket.MessageEvent) => {
-        if (typeof event.data !== "string") {
+        if (typeof event.data !== 'string') {
           event.data = event.data.toString();
         }
 
         const message = base64ToJson(event.data) as Message;
 
-        console.debug("Received message", message);
+        console.debug('Received message', message);
 
         if (isDashboardProviderMessage(message)) {
-          setDashboardProviderRequests(previousRequests => [
+          setDashboardProviderRequests((previousRequests) => [
             ...previousRequests,
-            message
+            message,
           ]);
         } else if (isInvalidateMessage(message)) {
-          setDashboardProviderRequests(previousRequests =>
-            previousRequests.filter(request => request.id !== message.payload)
+          setDashboardProviderRequests((previousRequests) =>
+            previousRequests.filter(
+              (request) => request.id !== message.payload,
+            ),
           );
         }
-      }
+      },
     );
 
-    connectedSocket.send("ready");
+    connectedSocket.send('ready');
 
     setSocket(connectedSocket);
   };
