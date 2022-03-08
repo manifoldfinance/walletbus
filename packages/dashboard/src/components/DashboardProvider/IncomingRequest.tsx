@@ -1,16 +1,16 @@
-import WebSocket from "isomorphic-ws";
-import ReactJson from "react-json-view";
-import { handleDashboardProviderRequest, respond } from "../../utils/utils";
-import Button from "../common/Button";
-import Card from "../common/Card";
-import { DashboardProviderMessage } from "@truffle/dashboard-message-bus";
+import WebSocket from 'isomorphic-ws';
+import ReactJson from 'react-json-view';
+import { handleDashboardProviderRequest, respond } from '../../utils/utils';
+import Button from '../common/Button';
+import Card from '../common/Card';
+import { DashboardProviderMessage } from '@truffle/dashboard-message-bus';
 
 interface Props {
   request: DashboardProviderMessage;
   setRequests: (
     requests:
       | DashboardProviderMessage[]
-      | ((requests: DashboardProviderMessage[]) => DashboardProviderMessage[])
+      | ((requests: DashboardProviderMessage[]) => DashboardProviderMessage[]),
   ) => void;
   provider: any;
   socket: WebSocket;
@@ -18,8 +18,8 @@ interface Props {
 
 function IncomingRequest({ provider, socket, request, setRequests }: Props) {
   const removeFromRequests = () => {
-    setRequests(previousRequests =>
-      previousRequests.filter(other => other.id !== request.id)
+    setRequests((previousRequests) =>
+      previousRequests.filter((other) => other.id !== request.id),
     );
   };
 
@@ -36,9 +36,9 @@ function IncomingRequest({ provider, socket, request, setRequests }: Props) {
         id: request.payload.id,
         error: {
           code: 4001,
-          message: "User rejected @truffle/dashboard-provider request"
-        }
-      }
+          message: 'User rejected @truffle/dashboard-provider request',
+        },
+      },
     };
 
     respond(errorResponse, socket);
@@ -46,16 +46,16 @@ function IncomingRequest({ provider, socket, request, setRequests }: Props) {
   };
 
   const formatDashboardProviderRequestParameters = (
-    request: DashboardProviderMessage
+    request: DashboardProviderMessage,
   ) => {
     switch (request.payload.method) {
-      case "eth_sendTransaction":
-      case "eth_signTransaction": {
+      case 'eth_sendTransaction':
+      case 'eth_signTransaction': {
         const [transaction] = request.payload.params;
         return <ReactJson name="transaction" src={transaction as any} />;
       }
-      case "eth_signTypedData_v1":
-      case "eth_signTypedData": {
+      case 'eth_signTypedData_v1':
+      case 'eth_signTypedData': {
         const [messageParams, from] = request.payload.params;
         return (
           <div>
@@ -67,8 +67,8 @@ function IncomingRequest({ provider, socket, request, setRequests }: Props) {
           </div>
         );
       }
-      case "eth_signTypedData_v3":
-      case "eth_signTypedData_v4": {
+      case 'eth_signTypedData_v3':
+      case 'eth_signTypedData_v4': {
         const [from, messageParams] = request.payload.params;
         const { message } = JSON.parse(messageParams);
         return (
@@ -81,7 +81,7 @@ function IncomingRequest({ provider, socket, request, setRequests }: Props) {
           </div>
         );
       }
-      case "personal_sign": {
+      case 'personal_sign': {
         const [message, from] = request.payload.params;
         return (
           <div>
@@ -93,7 +93,7 @@ function IncomingRequest({ provider, socket, request, setRequests }: Props) {
           </div>
         );
       }
-      case "eth_decrypt":
+      case 'eth_decrypt':
       default: {
         return <ReactJson src={request.payload.params} />;
       }

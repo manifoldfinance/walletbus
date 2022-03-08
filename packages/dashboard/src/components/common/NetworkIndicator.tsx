@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { getNetworkName } from "src/utils/utils";
+import { useEffect, useState } from 'react';
+import { getNetworkName } from 'src/utils/utils';
 
 interface Props {
   chainId: number;
@@ -7,7 +7,7 @@ interface Props {
 
 function NetworkIndicator({ chainId }: Props) {
   const [networkName, setNetworkName] = useState<string>(`Chain ID ${chainId}`);
-  const textColor = chainId === 1 ? "text-truffle-red" : "";
+  const textColor = chainId === 1 ? 'text-truffle-red' : '';
 
   useEffect(() => {
     const updateNetwork = async (chainId: number) => {

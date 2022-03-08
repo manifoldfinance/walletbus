@@ -1,6 +1,6 @@
-import Card from "./common/Card";
-import Button from "./common/Button";
-import NetworkIndicator from "./common/NetworkIndicator";
+import Card from './common/Card';
+import Button from './common/Button';
+import NetworkIndicator from './common/NetworkIndicator';
 
 interface Props {
   confirm: () => void;
@@ -11,7 +11,7 @@ interface Props {
 function ConfirmNetworkChanged({
   confirm,
   newChainId,
-  previousChainId
+  previousChainId,
 }: Props) {
   const confirmBody = (
     <div className="flex flex-col gap-2">

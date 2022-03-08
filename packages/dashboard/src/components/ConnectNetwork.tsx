@@ -1,9 +1,9 @@
-import { useWeb3React } from "@web3-react/core";
-import { providers } from "ethers";
-import Card from "./common/Card";
-import Button from "./common/Button";
-import { InjectedConnector } from "@web3-react/injected-connector";
-import NetworkIndicator from "./common/NetworkIndicator";
+import { useWeb3React } from '@web3-react/core';
+import { providers } from 'ethers';
+import Card from './common/Card';
+import Button from './common/Button';
+import { InjectedConnector } from '@web3-react/injected-connector';
+import NetworkIndicator from './common/NetworkIndicator';
 
 interface Props {
   confirm: () => void;
@@ -14,7 +14,7 @@ function ConnectNetwork({ confirm }: Props) {
   const injectedConnector = new InjectedConnector({});
 
   const connectBody =
-    "Please connect your wallet to use the Dashboard Provider.";
+    'Please connect your wallet to use the Dashboard Provider.';
 
   const connectButton = (
     <Button text="Connect Wallet" onClick={() => activate(injectedConnector)} />

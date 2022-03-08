@@ -3,12 +3,12 @@ import {
   connectToMessageBusWithRetries,
   isDashboardProviderMessage,
   jsonToBase64,
-  Message
-} from "@truffle/dashboard-message-bus";
-import type { JSONRPCRequestPayload } from "ethereum-protocol";
-import { promisify } from "util";
-import WebSocket from "ws";
-import Ganache from "ganache-core";
+  Message,
+} from '@truffle/dashboard-message-bus';
+import type { JSONRPCRequestPayload } from 'ethereum-protocol';
+import { promisify } from 'util';
+import WebSocket from 'ws';
+import Ganache from 'ganache-core';
 
 // NOTE This mock dashboard was copy-pasted from the dashboard-provider tests
 export default class MockDashboard {
@@ -19,8 +19,8 @@ export default class MockDashboard {
   async connect(subscribePort: number) {
     if (this.socket) return;
     this.socket = await connectToMessageBusWithRetries(subscribePort);
-    this.socket.on("message", this.handleIncomingMessage.bind(this));
-    this.socket.send("ready");
+    this.socket.on('message', this.handleIncomingMessage.bind(this));
+    this.socket.send('ready');
   }
 
   disconnect() {
@@ -31,7 +31,7 @@ export default class MockDashboard {
   private async handleIncomingMessage(data: WebSocket.Data) {
     if (!this.socket) return;
 
-    if (typeof data !== "string") {
+    if (typeof data !== 'string') {
       data = data.toString();
     }
 
@@ -40,11 +40,11 @@ export default class MockDashboard {
 
     const responsePayload = await forwardDashboardProviderRequest(
       this.forwardProvider,
-      message.payload
+      message.payload,
     );
     const response = {
       id: message.id,
-      payload: responsePayload
+      payload: responsePayload,
     };
 
     const encodedResponse = jsonToBase64(response);
@@ -54,7 +54,7 @@ export default class MockDashboard {
 
 export const forwardDashboardProviderRequest = async (
   provider: Ganache.Provider,
-  payload: JSONRPCRequestPayload
+  payload: JSONRPCRequestPayload,
 ) => {
   const send = promisify(provider.send.bind(provider));
   try {
@@ -64,7 +64,7 @@ export const forwardDashboardProviderRequest = async (
     return {
       jsonrpc: payload.jsonrpc,
       id: payload.id,
-      error
+      error,
     };
   }
 };

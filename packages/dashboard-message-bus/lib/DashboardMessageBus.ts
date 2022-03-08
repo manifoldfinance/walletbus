@@ -1,15 +1,15 @@
-import WebSocket from "isomorphic-ws";
-import delay from "delay";
-import { EventEmitter } from "events";
+import WebSocket from 'isomorphic-ws';
+import delay from 'delay';
+import { EventEmitter } from 'events';
 import {
   base64ToJson,
   broadcastAndAwaitFirst,
   broadcastAndDisregard,
   createMessage,
   jsonToBase64,
-  startWebSocketServer
-} from "./utils";
-import { promisify } from "util";
+  startWebSocketServer,
+} from './utils';
+import { promisify } from 'util';
 
 interface UnfulfilledRequest {
   publisher: WebSocket;
@@ -27,7 +27,7 @@ export class DashboardMessageBus extends EventEmitter {
   constructor(
     public publishPort: number,
     public subscribePort: number,
-    public host: string = "localhost"
+    public host: string = 'localhost',
   ) {
     super();
   }
@@ -39,25 +39,25 @@ export class DashboardMessageBus extends EventEmitter {
   async start() {
     this.subscribeServer = await startWebSocketServer({
       host: this.host,
-      port: this.subscribePort
+      port: this.subscribePort,
     });
 
-    this.subscribeServer.on("connection", (newSubscriber: WebSocket) => {
-      newSubscriber.on("close", () => {
+    this.subscribeServer.on('connection', (newSubscriber: WebSocket) => {
+      newSubscriber.on('close', () => {
         this.removeSubscriber(newSubscriber);
       });
 
       // Require the subscriber to send a message *first* before being added
-      newSubscriber.once("message", () => this.addSubscriber(newSubscriber));
+      newSubscriber.once('message', () => this.addSubscriber(newSubscriber));
     });
 
     this.publishServer = await startWebSocketServer({
       host: this.host,
-      port: this.publishPort
+      port: this.publishPort,
     });
 
-    this.publishServer.on("connection", (newPublisher: WebSocket) => {
-      newPublisher.on("close", () => {
+    this.publishServer.on('connection', (newPublisher: WebSocket) => {
+      newPublisher.on('close', () => {
         this.removePublisher(newPublisher);
       });
 
@@ -82,7 +82,7 @@ export class DashboardMessageBus extends EventEmitter {
   async terminate() {
     await promisify(this.publishServer.close.bind(this.publishServer))();
     await promisify(this.subscribeServer.close.bind(this.subscribeServer))();
-    this.emit("terminate");
+    this.emit('terminate');
   }
 
   /**
@@ -92,10 +92,10 @@ export class DashboardMessageBus extends EventEmitter {
   private async processRequest(
     publisher: WebSocket,
     data: WebSocket.Data,
-    subscribers: WebSocket[]
+    subscribers: WebSocket[],
   ) {
     // convert to string for uniformity since WebSocket.Data can take other forms
-    if (typeof data !== "string") {
+    if (typeof data !== 'string') {
       data = data.toString();
     }
 
@@ -107,17 +107,17 @@ export class DashboardMessageBus extends EventEmitter {
     try {
       this.logToPublishers(
         `Sending message to ${subscribers.length} subscribers`,
-        "requests"
+        'requests',
       );
-      this.logToPublishers(message, "requests");
+      this.logToPublishers(message, 'requests');
 
       const response = await broadcastAndAwaitFirst(subscribers, message);
 
       this.logToPublishers(
         `Sending response for message ${message.id}`,
-        "responses"
+        'responses',
       );
-      this.logToPublishers(response, "responses");
+      this.logToPublishers(response, 'responses');
 
       const encodedResponse = jsonToBase64(response);
       publisher.send(encodedResponse);
@@ -127,14 +127,14 @@ export class DashboardMessageBus extends EventEmitter {
     } catch (error) {
       this.logToPublishers(
         `An error occurred while processing message ${message.id}`,
-        "errors"
+        'errors',
       );
-      this.logToPublishers(error, "errors");
+      this.logToPublishers(error, 'errors');
     }
   }
 
   private invalidateMessage(id: number) {
-    const invalidationMessage = createMessage("invalidate", id);
+    const invalidationMessage = createMessage('invalidate', id);
     broadcastAndDisregard(this.subscribers, invalidationMessage);
   }
 
@@ -153,15 +153,15 @@ export class DashboardMessageBus extends EventEmitter {
 
   private logTo(logMessage: any, receivers: WebSocket[], namespace?: string) {
     const payload = {
-      namespace: "dashboard-message-bus",
-      message: logMessage
+      namespace: 'dashboard-message-bus',
+      message: logMessage,
     };
 
     if (namespace) {
       payload.namespace += `:${namespace}`;
     }
 
-    const message = createMessage("log", payload);
+    const message = createMessage('log', payload);
     broadcastAndDisregard(receivers, message);
   }
 
@@ -171,10 +171,10 @@ export class DashboardMessageBus extends EventEmitter {
    */
   private addSubscriber(newSubscriber: WebSocket) {
     this.unfulfilledRequests.forEach(({ publisher, data }) =>
-      this.processRequest(publisher, data, [newSubscriber])
+      this.processRequest(publisher, data, [newSubscriber]),
     );
 
-    this.logToPublishers("Subscriber connected", "connections");
+    this.logToPublishers('Subscriber connected', 'connections');
 
     this.subscribers.push(newSubscriber);
   }
@@ -184,10 +184,10 @@ export class DashboardMessageBus extends EventEmitter {
    * @dev Will cause the server to terminate if this was the last connection
    */
   private removeSubscriber(subscriberToRemove: WebSocket) {
-    this.logToPublishers("Subscriber disconnected", "connections");
+    this.logToPublishers('Subscriber disconnected', 'connections');
 
     this.subscribers = this.subscribers.filter(
-      subscriber => subscriber !== subscriberToRemove
+      (subscriber) => subscriber !== subscriberToRemove,
     );
 
     this.terminateIfNoConnections();
@@ -197,9 +197,9 @@ export class DashboardMessageBus extends EventEmitter {
    * Add a publisher and set up message listeners to process their requests
    */
   private addPublisher(newPublisher: WebSocket) {
-    this.logToPublishers("Publisher connected", "connections");
+    this.logToPublishers('Publisher connected', 'connections');
 
-    newPublisher.on("message", (data: WebSocket.Data) => {
+    newPublisher.on('message', (data: WebSocket.Data) => {
       this.processRequest(newPublisher, data, this.subscribers);
     });
 
@@ -211,10 +211,10 @@ export class DashboardMessageBus extends EventEmitter {
    * @dev Will cause the server to terminate if this was the last connection
    */
   private removePublisher(publisherToRemove: WebSocket) {
-    this.logToPublishers("Publisher disconnected", "connections");
+    this.logToPublishers('Publisher disconnected', 'connections');
 
     this.publishers = this.publishers.filter(
-      publisher => publisher !== publisherToRemove
+      (publisher) => publisher !== publisherToRemove,
     );
 
     this.clearRequestsForPublisher(publisherToRemove);

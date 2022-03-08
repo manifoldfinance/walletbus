@@ -1,23 +1,23 @@
 import type {
   JSONRPCRequestPayload,
   JSONRPCErrorCallback,
-  JSONRPCResponsePayload
-} from "ethereum-protocol";
-import { callbackify } from "util";
-import WebSocket from "isomorphic-ws";
-import delay from "delay";
-import open from "open";
+  JSONRPCResponsePayload,
+} from 'ethereum-protocol';
+import { callbackify } from 'util';
+import WebSocket from 'isomorphic-ws';
+import delay from 'delay';
+import open from 'open';
 import {
   sendAndAwait,
   createMessage,
   connectToMessageBusWithRetries,
   getMessageBusPorts,
   base64ToJson,
-  LogMessage
-} from "@securerpc/msgbus";
-import { startDashboardInBackground } from "@securerpc/dashboard";
-import { timeout } from "promise-timeout";
-import debugModule from "debug";
+  LogMessage,
+} from '@securerpc/msgbus';
+import { startDashboardInBackground } from '@securerpc/dashboard';
+import { timeout } from 'promise-timeout';
+import debugModule from 'debug';
 
 export interface DashboardProviderOptions {
   /** Host of the Dashboard (default: localhost) */
@@ -52,7 +52,7 @@ export class DashboardProvider {
   private verbose: boolean;
 
   constructor(options: DashboardProviderOptions = {}) {
-    this.dashboardHost = options.dashboardHost ?? "localhost";
+    this.dashboardHost = options.dashboardHost ?? 'localhost';
     this.dashboardPort = options.dashboardPort ?? 24012;
     this.timeoutSeconds = options.timeoutSeconds ?? 120;
     this.keepAlive = options.keepAlive ?? false;
@@ -65,7 +65,7 @@ export class DashboardProvider {
       host: this.dashboardHost,
       rpc: false,
       verbose: this.verbose,
-      autoOpen: false
+      autoOpen: false,
     };
     startDashboardInBackground(dashboardOptions);
 
@@ -82,7 +82,7 @@ export class DashboardProvider {
 
   public sendAsync(
     payload: JSONRPCRequestPayload,
-    callback: JSONRPCErrorCallback
+    callback: JSONRPCErrorCallback,
   ) {
     this.send(payload, callback);
   }
@@ -92,17 +92,17 @@ export class DashboardProvider {
   }
 
   private async sendInternal(
-    payload: JSONRPCRequestPayload
+    payload: JSONRPCRequestPayload,
   ): Promise<JSONRPCResponsePayload> {
     await this.ready();
 
-    const message = createMessage("provider", payload);
+    const message = createMessage('provider', payload);
 
     this.concurrentRequests += 1;
 
     const { payload: response } = await timeout(
       sendAndAwait(this.socket, message),
-      this.timeoutSeconds * 1000
+      this.timeoutSeconds * 1000,
     );
 
     this.concurrentRequests -= 1;
@@ -140,11 +140,11 @@ export class DashboardProvider {
     try {
       const { publishPort } = await getMessageBusPorts(
         this.dashboardPort,
-        this.dashboardHost
+        this.dashboardHost,
       );
       this.socket = await connectToMessageBusWithRetries(
         publishPort,
-        this.dashboardHost
+        this.dashboardHost,
       );
       if (this.verbose) this.setupLogging();
     } finally {
@@ -154,20 +154,20 @@ export class DashboardProvider {
 
   setupLogging() {
     this.socket?.addEventListener(
-      "message",
+      'message',
       (event: WebSocket.MessageEvent) => {
-        if (typeof event.data !== "string") {
+        if (typeof event.data !== 'string') {
           event.data = event.data.toString();
         }
 
         const message = base64ToJson(event.data);
-        if (message.type === "log") {
+        if (message.type === 'log') {
           const logMessage = message as LogMessage;
           const debug = debugModule(logMessage.payload.namespace);
           debug.enabled = true;
           debug(logMessage.payload.message);
         }
-      }
+      },
     );
   }
 }

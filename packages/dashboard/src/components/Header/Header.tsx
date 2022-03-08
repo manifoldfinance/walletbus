@@ -1,8 +1,8 @@
-import { useWeb3React } from "@web3-react/core";
-import { providers } from "ethers";
-import { useEffect, useState } from "react";
-import { getDisplayName } from "../../utils/utils";
-import NetworkIndicator from "../common/NetworkIndicator";
+import { useWeb3React } from '@web3-react/core';
+import { providers } from 'ethers';
+import { useEffect, useState } from 'react';
+import { getDisplayName } from '../../utils/utils';
+import NetworkIndicator from '../common/NetworkIndicator';
 
 interface Props {}
 
@@ -13,7 +13,7 @@ function Header({}: Props) {
   useEffect(() => {
     const updateAccountDisplay = async (
       library: providers.Web3Provider,
-      account: string
+      account: string,
     ) => {
       setDisplayName(await getDisplayName(library, account));
     };

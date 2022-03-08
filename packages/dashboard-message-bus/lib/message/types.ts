@@ -9,9 +9,9 @@ export interface Message {
  * The message payload is an RPC request that should be forwarded.
  */
 export interface DashboardProviderMessage extends Message {
-  type: "provider";
+  type: 'provider';
   payload: {
-    jsonrpc: "2.0";
+    jsonrpc: '2.0';
     method: string;
     params: any[];
     id: number;
@@ -24,7 +24,7 @@ export interface DashboardProviderMessage extends Message {
  * This is an internal message type that is not intended to be used by publishers or subscribers.
  */
 export interface LogMessage extends Message {
-  type: "log";
+  type: 'log';
   payload: {
     namespace: string;
     message: any;
@@ -37,22 +37,22 @@ export interface LogMessage extends Message {
  * This is an internal message type that is not intended to be used by publishers or subscribers.
  */
 export interface InvalidateMessage extends Message {
-  type: "invalidate";
+  type: 'invalidate';
   payload: number;
 }
 
 export const isDashboardProviderMessage = (
-  message: Message
+  message: Message,
 ): message is DashboardProviderMessage => {
-  return message.type === "provider";
+  return message.type === 'provider';
 };
 
 export const isLogMessage = (message: Message): message is LogMessage => {
-  return message.type === "log";
+  return message.type === 'log';
 };
 
 export const isInvalidateMessage = (
-  message: Message
+  message: Message,
 ): message is InvalidateMessage => {
-  return message.type === "invalidate";
+  return message.type === 'invalidate';
 };

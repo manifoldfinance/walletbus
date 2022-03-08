@@ -2,7 +2,7 @@
  * [start Dev Server]
  */
 
-import { DashboardServer } from "../lib/interfaceServer";
+import { DashboardServer } from '../lib/interfaceServer';
 
 /**
  * @const options
@@ -14,10 +14,10 @@ import { DashboardServer } from "../lib/interfaceServer";
  */
 const options = {
   port: 24012,
-  host: "localhost",
+  host: 'localhost',
   verbose: true,
   rpc: true,
-  autoOpen: false
+  autoOpen: false,
 };
 
 /**
