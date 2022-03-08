@@ -36,7 +36,7 @@ jobs:
       - name: webpage install, build, and test
         uses: actions/setup-node@v2
 
-      - run: yarn install --prefer-offline
+      - run: yarn install
         if: steps.yarn-cache.outputs.cache-hit != 'true'
         id: install
 
