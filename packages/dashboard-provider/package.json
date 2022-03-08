@@ -19,14 +19,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/trufflesuite/truffle.git",
+    "url": "https://github.com/manifoldfinance/securerpc.git",
     "directory": "packages/dashboard-provider"
   },
-  "homepage": "https://github.com/trufflesuite/truffle/tree/master/packages/dashboard-provider#readme",
+  "homepage": "https://github.com/manifoldfinance/securerpc/tree/master/packages/dashboard-provider#readme",
   "bugs": {
-    "url": "https://github.com/trufflesuite/truffle/issues"
+    "url": "https://github.com/manifoldfinance/securerpc/issues"
   },
-  "author": "Rosco Kalis <roscokalis@gmail.com>",
+  "author": "SEE CONTRIBUTORS",
   "license": "MIT",
   "publishConfig": {
     "access": "public"

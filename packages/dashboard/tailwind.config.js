@@ -4,14 +4,14 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        oswald: ["Inter"]
+        Inter: ["Inter"]
       },
       colors: {
-        "truffle-blue": "#3fe0c5",
-        "truffle-red": "#F2545B",
-        "truffle-brown": "#5e464d",
-        "truffle-light": "#efe5dc",
-        "truffle-lighter": "#f8f5f0"
+        "dashboard-blue": "#0f62fe",
+        "dashboard-red": "##ca3214",
+        "dashboard-brown": "#7e868c",
+        "dashboard-light": "#ecefed",
+        "dashboard-lighter": "#f8f9fa"
       }
     }
   },

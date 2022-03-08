@@ -3,7 +3,7 @@ import ReactJson from 'react-json-view';
 import { handleDashboardProviderRequest, respond } from '../../utils/utils';
 import Button from '../common/Button';
 import Card from '../common/Card';
-import { DashboardProviderMessage } from '@truffle/dashboard-message-bus';
+import { DashboardProviderMessage } from '@securerpc/msgbus';
 
 interface Props {
   request: DashboardProviderMessage;
