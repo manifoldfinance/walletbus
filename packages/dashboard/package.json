@@ -1,5 +1,5 @@
 {
-  "name": "web3-dashboard",
+  "name": "@securerpc/dashboard",
   "license": "MIT",
   "author": "Rosco Kalis <roscokalis@gmail.com>",
   "description": "Web-server component for signing CLI transactions with browser",
