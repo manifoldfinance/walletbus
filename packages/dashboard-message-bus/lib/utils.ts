@@ -153,6 +153,6 @@ export const getMessageBusPorts = async (
   }
 
   throw new Error(
-    `Could not connect to dashboard at http://${dashboardHost}:${dashboardPort}/ports`,
+    `[ERROR]: Unable to connect to dashboard at http://${dashboardHost}:${dashboardPort}/ports`,
   );
 };

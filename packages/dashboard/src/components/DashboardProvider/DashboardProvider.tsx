@@ -76,5 +76,5 @@ function DashboardProvider({ paused, socket, requests, setRequests }: Props) {
     </div>
   );
 }
-🚧  🟡 🔵 🟢 🔴/ / ⛔️ ✅
+
 export default DashboardProvider;

@@ -16,7 +16,7 @@ function ConfirmNetworkChanged({
   const confirmBody = (
     <div className="flex flex-col gap-2">
       <div>
-       🌐 We detected that your connected network changed. Please confirm that
+        🌐 We detected that your connected network changed. Please confirm that
         this was your intention or switch back to the previous network.
       </div>
       <div>Your previous connected network was:</div>
