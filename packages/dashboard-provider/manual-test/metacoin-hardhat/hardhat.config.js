@@ -9,7 +9,7 @@ module.exports = {
     "localhost": {
       url: "http://localhost:8545"
     },
-    "truffle-dashboard": {
+    "securerpc-dashboard": {
       url: "http://localhost:24012/rpc"
     }
   },

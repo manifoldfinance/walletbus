@@ -12,7 +12,7 @@
     "dev": "turbo run dev --parallel",
     "lint": "turbo run lint",
     "test:ci": "jest -u --passWithNoTests --coverageDirectory .github/coverage",
-    "format": "prettier --config .prettierrc.js --write \"**/*.{ts,tsx,md}\""
+    "format": "npx prettier --config .prettierrc.json --write \"**/*.{ts,tsx,md}\""
     },
   "repository": {
     "type": "git",

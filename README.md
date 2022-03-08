@@ -1,4 +1,6 @@
-# @securerpc/local-provider
+# @securerpc/walletbus
+
+> @securerpc/walletbus
 
 `@securerpc/local-provider` enables communication between command-line or
 desktop applications and browser-based Ethereum wallets such as Metamask. One
