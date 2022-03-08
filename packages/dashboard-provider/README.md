@@ -92,7 +92,7 @@ is logged in the following "debug" namespaces
 ## Development
 
 The entire dashboard-provider stack consists of three separate packages within
-the `trufflesuite/truffle` repository. `@securerpc/local-provider` contains the
+the `manifoldfinance/securerpc` repository. `@securerpc/local-provider` contains the
 actual `Provider` interface that forwards requests to the dashboard. The
 `@securerpc/dashboard` package contains a React app that receives incoming
 requests, displays them to the user, and then forwards them to the browser's

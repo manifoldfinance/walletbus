@@ -4,7 +4,7 @@ import {
   getMessageBusPorts,
   jsonToBase64,
   PortsConfig,
-} from '@truffle/dashboard-message-bus';
+} from '@securerpc/msgbus';
 import axios from 'axios';
 import { providers } from 'ethers';
 import type { JSONRPCRequestPayload } from 'ethereum-protocol';
