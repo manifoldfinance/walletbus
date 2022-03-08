@@ -6,7 +6,7 @@ import {
   isInvalidateMessage,
   Message,
   base64ToJson,
-} from '@truffle/dashboard-message-bus';
+} from '@securerpc/msgbus';
 import { useWeb3React } from '@web3-react/core';
 import { useEffect, useState } from 'react';
 import { getPorts } from './utils/utils';
@@ -24,6 +24,7 @@ function Dashboard() {
   >([]);
 
   const { chainId } = useWeb3React();
+  console.log({ chainId });
 
   useEffect(() => {
     if (!chainId || !socket) return;
