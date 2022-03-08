@@ -13,7 +13,7 @@
     "lint": "turbo run lint",
     "test:ci": "jest -u --passWithNoTests --coverageDirectory .github/coverage",
     "format": "npx prettier --config .prettierrc.json --write \"**/*.{ts,tsx,md}\""
-    },
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sambacha/schoolbus.git"
@@ -31,12 +31,14 @@
     "@typescript-eslint/eslint-plugin": "^5.6.0",
     "@typescript-eslint/parser": "^5.6.0",
     "coveralls": "^3.1.1",
+    "dotenv": "^16.0.0",
+    "dotenv-expand": "^8.0.1",
     "eslint": "^8.4.1",
     "eslint-plugin-react-hooks": "^4.2.0",
-    "prettier": "^2.5.1",
-    "jest": "27.2.4",
     "fs-extra": "^10.0.1",
     "glob": "^7.2.0",
+    "jest": "27.2.4",
+    "prettier": "^2.5.1",
     "prompt": "^1.2.0",
     "size-limit": "^6.0.3",
     "ts-jest": "^27.1.3",
@@ -45,5 +47,5 @@
     "turbo": "^1.1.5",
     "typescript": "^4.6.2"
   },
-"packageManager": "yarn@1.19.0"
+  "packageManager": "yarn@1.19.0"
 }

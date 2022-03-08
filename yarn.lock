@@ -2074,6 +2074,32 @@
     estree-walker "^1.0.1"
     picomatch "^2.2.2"
 
+"@securerpc/dashboard@^0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@securerpc/dashboard/-/dashboard-0.1.1.tgz#9717808d0a2bcf650d507657dcbcaec63140ddbd"
+  integrity sha512-DWg+Sz32AdCB83XGkVihxtXS1npIU6xdShWMBnR4uXZm7XFmALSUDedUwYWjpaVxkvdjs3OsF3FbPtZcoOnHKw==
+  dependencies:
+    "@securerpc/msgbus" "^0.1.0"
+    cors "^2.8.5"
+    debug "^4.3.2"
+    express "^4.17.1"
+    get-port "^5"
+    isomorphic-ws "^4.0.1"
+    open "^8.4.0"
+    ws "^7.2.0"
+
+"@securerpc/msgbus@^0.1.0":
+  version "0.1.3"
+  resolved "https://registry.yarnpkg.com/@securerpc/msgbus/-/msgbus-0.1.3.tgz#94d2677b5ad68d6026b471b587d5699a0bbed2c0"
+  integrity sha512-7T8xXP2EVDJcX6wUNtWHIbEBn952WoGc4Xgory1BUE8QziNCXMSsnX4gd1O8m0IHjHu4PPXDrNHEK8P/wjByvg==
+  dependencies:
+    "@types/ws" "7.2.0"
+    axios "^0.26.0"
+    delay "^5.0.0"
+    isomorphic-ws "^4.0.1"
+    promise.any "^2.0.2"
+    ws "7.2.0"
+
 "@sindresorhus/is@^0.14.0":
   version "0.14.0"
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-0.14.0.tgz#9fb3a3cf3132328151f353de4632e01e52102bea"
@@ -6323,10 +6349,20 @@ dotenv-expand@5.1.0:
   resolved "https://registry.yarnpkg.com/dotenv-expand/-/dotenv-expand-5.1.0.tgz#3fbaf020bfd794884072ea26b1e9791d45a629f0"
   integrity sha512-YXQl1DSa4/PQyRfgrv6aoNjhasp/p4qs9FjJ4q4cQk+8m4r6k4ZSiEyytKG8f8W9gi8WsQtIObNmKd+tMzNTmA==
 
+dotenv-expand@^8.0.1:
+  version "8.0.1"
+  resolved "https://registry.yarnpkg.com/dotenv-expand/-/dotenv-expand-8.0.1.tgz#332aa17c14b12e28e2e230f8d183eecc1c014fdc"
+  integrity sha512-j/Ih7bIERDR5PzI89Zu8ayd3tXZ6E3dbY0ljQ9Db0K87qBO8zdLsi2dIvDHMWtjC3Yxb8XixOTHAtia0fDHRpg==
+
 dotenv@8.2.0:
   version "8.2.0"
   resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-8.2.0.tgz#97e619259ada750eea3e4ea3e26bceea5424b16a"
   integrity sha512-8sJ78ElpbDJBHNeBzUbUVLsqKdccaa/BXF1uPTw3GrvQTBgrQrtObr2mUrE38vzYd8cEv+m/JBfDLioYcfXoaw==
+
+dotenv@^16.0.0:
+  version "16.0.0"
+  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-16.0.0.tgz#c619001253be89ebb638d027b609c75c26e47411"
+  integrity sha512-qD9WU0MPM4SWLPJy/r2Be+2WgQj8plChsyrCNQzW/0WjvcJQiKQJ9mH3ZgB3fxbUUxgc/11ZJ0Fi5KiimWGz2Q==
 
 dotignore@~0.1.2:
   version "0.1.2"
