@@ -1,4 +1,4 @@
-# @securerpc/local-provider
+# [`@securerpc/local-provider`](#)
 
 `@securerpc/local-provider` enables communication between command-line or
 desktop applications and browser-based Ethereum wallets such as Metamask. One
@@ -9,6 +9,19 @@ contract development tools such as Foundry or Hardhat.
 > @securerpc/dashboard instance. To have more control over this dashboard
 > instance, please use the [`securerpc dashboard`] command and its associated
 > RPC URL instead of the @securerpc/local-provider.
+
+
+- [@securerpc/local-provider](#)
+  * [Installation](#installation)
+  * [Usage](#usage)
+    + [Ethers.js](#ethersjs)
+    + [Web3.js](#web3js)
+    + [Configuration options](#configuration-options)
+  * [Logging](#logging)
+  * [Development](#development)
+    + [Automated testing](#automated-testing)
+  * [License](#license)
+
 
 ## Installation
 
