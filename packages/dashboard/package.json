@@ -1,17 +1,13 @@
 {
   "name": "@securerpc/dashboard",
   "license": "MIT",
-  "author": "Rosco Kalis <roscokalis@gmail.com>",
   "description": "Web-server component for signing CLI transactions with browser",
   "repository": {
     "type": "git",
-    "url": "https://github.com/trufflesuite/truffle.git",
+    "url": "https://github.com/manifoldfinnace/walletbus.git",
     "directory": "packages/dashboard"
   },
-  "bugs": {
-    "url": "https://github.com/trufflesuite/truffle/issues"
-  },
-  "version": "0.1.1",
+  "version": "0.2.0",
   "main": "dist/lib/index.js",
   "types": "dist/lib/index.d.ts",
   "files": [
@@ -19,9 +15,11 @@
     "dist/bin"
   ],
   "dependencies": {
-    "@securerpc/msgbus": "^0.1.0",
+    "@securerpc/msgbus": "^0.2.0",
     "cors": "^2.8.5",
     "debug": "^4.3.2",
+    "dotenv": "^16.0.0",
+    "dotenv-expand": "^8.0.1",
     "express": "^4.17.1",
     "get-port": "^5",
     "isomorphic-ws": "^4.0.1",
