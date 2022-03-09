@@ -23,7 +23,7 @@ module.exports = async function (options) {
         ? address.ip()
         : undefined;
 
-    console.log(`Truffle Dashboard running at http://localhost:${port}`);
+    console.log(`SecureRPC Dashboard running at http://localhost:${port}`);
     lanAddress &&
       console.log(`                             http://${lanAddress}:${port}`);
 
@@ -35,7 +35,7 @@ module.exports = async function (options) {
         `                                          http://${lanAddress}:${port}/rpc`
       );
   } else {
-    console.log(`Truffle Dashboard running at http://${host}:${port}`);
+    console.log(`SecureRPC Dashboard running at http://${host}:${port}`);
     console.log(
       `DashboardProvider RPC endpoint running at http://${host}:${port}/rpc`
     );

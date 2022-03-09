@@ -7,6 +7,14 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inconsolata&display=swap');
 
+/* 
+code {
+  font-family: Hack, monospace;
+}
+https://cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/fonts/hack-regular.woff2
+https://cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/fonts/hack-regular.woff
+*/
+
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;

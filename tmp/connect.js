@@ -3,7 +3,7 @@ const { detectConfigOrDefault } = require("../utils/utils");
 module.exports = {
   command: "dashboard",
   description:
-    "Start a Truffle Dashboard instance + DashboardProvider RPC endpoint",
+    "Start a SecureRPC Dashboard instance + DashboardProvider RPC endpoint",
   builder: {
     port: {
       describe: "Specify the port to start the dashboard and RPC endpoint on",
@@ -19,7 +19,7 @@ module.exports = {
     }
   },
   help: {
-    usage: "truffle dashboard [--port <number>] [--host <string>] [--verbose]",
+    usage: "securerpc dashboard [--port <number>] [--host <string>] [--verbose]",
     options: [
       {
         option: "--port <number>",
@@ -60,7 +60,7 @@ module.exports = {
         : undefined;
 
       console.log(
-        `Truffle Dashboard running at http://localhost:${port}`
+        `SecureRPC Dashboard running at http://localhost:${port}`
       );
       lanAddress && console.log(
         `                             http://${lanAddress}:${port}`
@@ -74,7 +74,7 @@ module.exports = {
       );
     } else {
       console.log(
-        `Truffle Dashboard running at http://${host}:${port}`
+        `SecureRPC Dashboard running at http://${host}:${port}`
       );
       console.log(
         `DashboardProvider RPC endpoint running at http://${host}:${port}/rpc`

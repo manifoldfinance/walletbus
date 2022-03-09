@@ -10,18 +10,16 @@ contract development tools such as Foundry or Hardhat.
 > instance, please use the [`securerpc dashboard`] command and its associated
 > RPC URL instead of the @securerpc/local-provider.
 
-
 - [@securerpc/local-provider](#)
-  * [Installation](#installation)
-  * [Usage](#usage)
-    + [Ethers.js](#ethersjs)
-    + [Web3.js](#web3js)
-    + [Configuration options](#configuration-options)
-  * [Logging](#logging)
-  * [Development](#development)
-    + [Automated testing](#automated-testing)
-  * [License](#license)
-
+  - [Installation](#installation)
+  - [Usage](#usage)
+    - [Ethers.js](#ethersjs)
+    - [Web3.js](#web3js)
+    - [Configuration options](#configuration-options)
+  - [Logging](#logging)
+  - [Development](#development)
+    - [Automated testing](#automated-testing)
+  - [License](#license)
 
 ## Installation
 

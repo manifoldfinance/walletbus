@@ -1,0 +1,7 @@
+# git attributes
+# @see https://docs.github.com/en/repositories/working-with-files/managing-files/customizing-how-changed-files-appear-on-github
+# {@link https://www.git-scm.com/docs/gitignore#_pattern_format }
+
+dist/** linguist-generated=true
+build/** linguist-generated=true
+output/** linguist-generated=true

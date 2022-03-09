@@ -79,7 +79,7 @@ function Dashboard() {
   };
 
   return (
-    <div className="h-full min-h-screen bg-gradient-to-b from-truffle-lighter to-truffle-light">
+    <div className="h-full min-h-screen bg-gradient-to-b from-dashboard-lighter to-dashboard-light">
       <Header />
       {paused && chainId && connectedChainId && (
         <ConfirmNetworkChanged

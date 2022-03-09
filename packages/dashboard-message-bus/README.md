@@ -1,14 +1,11 @@
 # `@securerpc/msgbus`
 
-> `@securerpc/msgbus` manages the communication between the Truffle Dashboard and any other Truffle components, such as @securerpc/local-provider.
+> `@securerpc/msgbus` manages the communication
 
 - [@securerpc/msgbus](#--securerpc-msgbus-)
-  * [Development](#development)
-    + [Architecture](#architecture)
-    + [Adding new message types](#adding-new-message-types)
-
-
-
+  - [Development](#development)
+    - [Architecture](#architecture)
+    - [Adding new message types](#adding-new-message-types)
 
 ## Development
 

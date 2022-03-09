@@ -1,4 +1,4 @@
-lerna-debug.log
+*.log
 packages/**/node_modules
 node_modules
 yarn-error.log
@@ -6,8 +6,6 @@ yarn-error.log
 .DS_Store
 *.cache/
 coverage/
-packages/dashboard/lib/**/*
-packages/dashboard/
 **/.turbo/turbo-build.log
 
 # local env files
@@ -19,15 +17,8 @@ packages/dashboard/
 # turbo
 .turbo
 
-packages/**/dist/*.js.map
-packages/**/dist/*.js
-packages/**/dist/*.d.ts
-packages/**/dist/**
-packages/**/dist/cjs/*.js
-packages/**/dist/cjs/*.js.map
-packages/**/dist/cjs/*.d.ts
-packages/magic/dist/cjs
-
+# monorepo
+*.js.map
 packages/**/package-lock.json
 package-lock.json
 tsbuildinfo
