@@ -27,12 +27,12 @@ const Web3 = require('web3')
     // Sender address and private key
     // Second acccount in dev.json genesis file
     // Exclude 0x at the beginning of the private key
-    const addressFrom = '0x627306090abaB3A6e1400e9345bC60c78a8BEf57'
-    const privKey = Buffer.from('c87509a1c067bbde78beb793e6fa76530b6382a4c0241e5e4a9ec0a0f44dc0d3', 'hex')
+    const addressFrom = '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266'
+    const privKey = Buffer.from('ac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80', 'hex')
  
     // Receiver address and value to transfer
-    // Third account in dev.json genesis file
-    const addressTo = '0xf17f52151EbEF6C7334FAD080c5704D77216b732'
+    //last account 
+    const addressTo = '0xa0Ee7A142d267C1f36714E4a8F75612F20a79720'
     const valueInEther = 2
  
     // Get the address transaction count in order to specify the correct nonce

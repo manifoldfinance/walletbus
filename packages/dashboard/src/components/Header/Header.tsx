@@ -26,8 +26,8 @@ function Header({}: Props) {
     <header className="grid grid-cols-2 py-2 px-4 border-b-2 border-dashboard-light text-md uppercase">
       <div className="flex justify-start items-center">
         <span className="inline-flex items-center gap-3">
-          <img src="/dashboard-logomark.svg" width="32px" />
-          SecureRPC Dashboard
+          <img src="/logomark.svg" width="32px" />
+          Wallet Bus
         </span>
       </div>
       <div className="flex justify-end items-center gap-4 text-md">

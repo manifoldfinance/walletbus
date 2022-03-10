@@ -17,9 +17,11 @@ https://cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/fonts/hack-regular.woff
 
 body {
   margin: 0;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter',
+   sans-serif;
 }
 
 code {
-  font-family: 'Inconsolata', monospace;
+  font-family: 'Inconsolata',
+   monospace;
 }

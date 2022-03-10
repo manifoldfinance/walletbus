@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="502px" preserveAspectRatio="none" style="width:409px;height:502px;background:#FFFFFF;" version="1.1" viewBox="0 0 409 502" width="409px" zoomAndPan="magnify"><defs><filter height="300%" id="f1ullntq02ruu3" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><g id="Idle"><rect fill="#FEFECE" filter="url(#f1ullntq02ruu3)" height="148.0469" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="141" x="254" y="94"/><line style="stroke:#A80036;stroke-width:1.5;" x1="254" x2="395" y1="120.2969" y2="120.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="26" x="311.5" y="111.9951">Idle</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="62" x="259" y="136.4355">state=Idle</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="66" x="259" y="150.4043">connecting</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="45" x="259" y="164.373">options</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="59" x="259" y="178.3418">selected?</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="37" x="259" y="192.3105">error?</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="96" x="259" y="206.2793">................................</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="121" x="259" y="220.248">acknowledgeError()</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="105" x="259" y="234.2168">connect(&lt;type&gt;)</text></g><g id="Locked"><rect fill="#FEFECE" filter="url(#f1ullntq02ruu3)" height="162.0156" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="141" x="7" y="87"/><line style="stroke:#A80036;stroke-width:1.5;" x1="7" x2="148" y1="113.2969" y2="113.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="52" x="51.5" y="104.9951">Locked</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="84" x="12" y="129.4355">state=Locked</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="57" x="12" y="143.4043">unlocking</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="45" x="12" y="157.373">options</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="53" x="12" y="171.3418">selected</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="37" x="12" y="185.3105">error?</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="96" x="12" y="199.2793">................................</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="121" x="12" y="213.248">acknowledgeError()</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="49" x="12" y="227.2168">unlock()</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="76" x="12" y="241.1855">disconnect()</text></g><g id="Ready"><rect fill="#FEFECE" filter="url(#f1ullntq02ruu3)" height="162.0156" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="179" x="107" y="326"/><line style="stroke:#A80036;stroke-width:1.5;" x1="107" x2="286" y1="352.2969" y2="352.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="44" x="174.5" y="343.9951">Ready</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="77" x="112" y="368.4355">state=Ready</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="45" x="112" y="382.4043">options</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="53" x="112" y="396.373">selected</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="50" x="112" y="410.3418">address</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="37" x="112" y="424.3105">error?</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="159" x="112" y="438.2793">pendingUserConfirmation?</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="96" x="112" y="452.248">................................</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="121" x="112" y="466.2168">acknowledgeError()</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="76" x="112" y="480.1855">disconnect()</text></g><ellipse cx="324.5" cy="16" fill="#000000" filter="url(#f1ullntq02ruu3)" rx="10" ry="10" style="stroke:none;stroke-width:1.0;"/><!--MD5=[38f1f8b7f214ff6bc6d4b705f682283d]
+link *start to Idle--><path d="M324.5,26.383 C324.5,39.311 324.5,63.853 324.5,88.861 " fill="none" id="*start-to-Idle" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="324.5,93.866,328.5,84.866,324.5,88.866,320.5,84.866,324.5,93.866" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[243455ab00c182b3a7576a123d93ab88]
+link Idle to Locked--><path d="M253.77,184.314 C244.965,185.833 236.053,187.127 227.5,188 C204.066,190.391 197.934,190.391 174.5,188 C167.551,187.291 160.364,186.303 153.191,185.143 " fill="none" id="Idle-to-Locked" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="148.23,184.314,156.4474,189.743,153.1616,185.1383,157.7663,181.8525,148.23,184.314" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="51" x="175.5" y="184.0669">connect</text><!--MD5=[3cc78abc788ffc43e30c7d50f6d9a797]
+link Locked to Idle--><path d="M148.28,168 C179.674,168 216.662,168 248.624,168 " fill="none" id="Locked-to-Idle" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="253.709,168,244.709,164,248.709,168,244.709,172,253.709,168" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="69" x="166.5" y="161.0669">disconnect</text><!--MD5=[12e6f6820e5560e84f31b96817681133]
+link Ready to Locked--><path d="M165.166,325.933 C158.423,310.186 151.043,293.927 143.5,279 C139.305,270.698 134.722,262.177 129.989,253.73 " fill="none" id="Ready-to-Locked" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="127.346,249.046,128.2879,258.8497,129.8044,253.3999,135.2542,254.9163,127.346,249.046" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[97a66128d39d35f81b11857b1cc1b9f5]
+link Locked to Ready--><path d="M79.1124,249.072 C81.5785,265.139 85.7279,281.52 92.5,296 C96.5865,304.738 101.639,313.231 107.297,321.37 " fill="none" id="Locked-to-Ready" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="110.5,325.855,108.5254,316.2061,107.5945,321.7859,102.0148,320.8549,110.5,325.855" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="41" x="93.5" y="292.0669">unlock</text><!--MD5=[123fa377b1d396d9cd1777229cba71b2]
+link Idle to Ready--><path d="M253.821,238.228 C243.498,251.007 233.88,264.82 226.5,279 C219.734,292 214.472,306.539 210.386,321.009 " fill="none" id="Idle-to-Ready" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="209.045,325.912,215.279,318.2872,210.3649,321.0894,207.5628,316.1753,209.045,325.912" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="51" x="227.5" y="292.0669">connect</text><!--MD5=[5807d236735cd3618f4e85ae3b545736]
+link Ready to Idle--><path d="M264.996,325.944 C271.762,316.188 278.107,306.093 283.5,296 C291.614,280.814 298.472,263.743 304.12,247.161 " fill="none" id="Ready-to-Idle" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="305.834,242.033,299.188,249.3014,304.2494,246.7753,306.7756,251.8367,305.834,242.033" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="69" x="292.5" y="292.0669">disconnect</text><!--MD5=[f2913df4272bdbbcb4eac656b46d4903]
+@startuml
+Idle: state=Idle
+Idle: connecting
+Idle: options
+Idle: selected?
+Idle: error?
+Idle: ................................
+Idle: acknowledgeError()
+Idle: connect(<type>)
+
+Locked: state=Locked
+Locked: unlocking
+Locked: options
+Locked: selected
+Locked: error?
+Locked: ................................
+Locked: acknowledgeError()
+Locked: unlock()
+Locked: disconnect()
+
+Ready: state=Ready
+Ready: options
+Ready: selected
+Ready: address
+Ready: error?
+Ready: pendingUserConfirmation?
+Ready: ................................
+Ready: acknowledgeError()
+Ready: disconnect()
+
+
+[*] - -> Idle
+Idle -> Locked :connect
+Ready -[dashed]> Locked
+Idle -> Ready :connect
+Locked - -> Ready :unlock
+Ready -> Idle :disconnect
+Locked -> Idle :disconnect
+@enduml
+
+PlantUML version 1.2021.17beta4(Unknown compile time)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>
