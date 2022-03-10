@@ -1,0 +1,111 @@
+<!DOCTYPE html><html class="default"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="IE=edge"/><title>@securerpc/local-provider</title><meta name="description" content="Documentation for @securerpc/local-provider"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="assets/style.css"/><link rel="stylesheet" href="assets/highlight.css"/><script async src="assets/search.js" id="search-script"></script></head><body><script>document.body.classList.add(localStorage.getItem("tsd-theme") || "os")</script><header><div class="tsd-page-toolbar"><div class="container"><div class="table-wrap"><div class="table-cell" id="tsd-search" data-base="."><div class="field"><label for="tsd-search-field" class="tsd-widget search no-caption">Search</label><input type="text" id="tsd-search-field"/></div><ul class="results"><li class="state loading">Preparing search index...</li><li class="state failure">The search index is not available</li></ul><a href="index.html" class="title">@securerpc/local-provider</a></div><div class="table-cell" id="tsd-widgets"><div id="tsd-filter"><a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a><div class="tsd-filter-group"><div class="tsd-select" id="tsd-filter-visibility"><span class="tsd-select-label">All</span><ul class="tsd-select-list"><li data-value="public">Public</li><li data-value="protected">Public/Protected</li><li data-value="private" class="selected">All</li></ul></div> <input type="checkbox" id="tsd-filter-inherited" checked/><label class="tsd-widget" for="tsd-filter-inherited">Inherited</label><input type="checkbox" id="tsd-filter-externals" checked/><label class="tsd-widget" for="tsd-filter-externals">Externals</label></div></div><a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a></div></div></div></div><div class="tsd-page-title"><div class="container"><h1>@securerpc/local-provider</h1></div></div></header><div class="container container-main"><div class="row"><div class="col-8 col-content"><div class="tsd-panel tsd-typography">
+<a href="#securerpclocal-provider" id="securerpclocal-provider" style="color: inherit; text-decoration: none;">
+  <h1><a href="#"><code>@securerpc/local-provider</code></a></h1>
+</a>
+<p><code>@securerpc/local-provider</code> enables communication between command-line or
+desktop applications and browser-based Ethereum wallets such as Metamask. One
+important use case is that it allows you to use your Metamask wallet with smart
+contract development tools such as Foundry or Hardhat.</p>
+<blockquote>
+<p>TODO <strong>Note</strong>: @securerpc/local-provider automatically starts and stops a
+@securerpc/dashboard instance. To have more control over this dashboard
+instance, please use the [<code>securerpc dashboard</code>] command and its associated
+RPC URL instead of the @securerpc/local-provider.</p>
+</blockquote>
+<ul>
+<li><a href="#">@securerpc/local-provider</a><ul>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#usage">Usage</a><ul>
+<li><a href="#ethersjs">Ethers.js</a></li>
+<li><a href="#web3js">Web3.js</a></li>
+<li><a href="#configuration-options">Configuration options</a></li>
+</ul>
+</li>
+<li><a href="#logging">Logging</a></li>
+<li><a href="#development">Development</a><ul>
+<li><a href="#automated-testing">Automated testing</a></li>
+</ul>
+</li>
+<li><a href="#license">License</a></li>
+</ul>
+</li>
+</ul>
+
+<a href="#installation" id="installation" style="color: inherit; text-decoration: none;">
+  <h2>Installation</h2>
+</a>
+<pre><code><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-0">install</span><span class="hl-1"> @</span><span class="hl-0">securerpc</span><span class="hl-1">/</span><span class="hl-0">local</span><span class="hl-1">-</span><span class="hl-0">provider</span>
+</code></pre>
+<pre><code><span class="hl-0">yarn</span><span class="hl-1"> </span><span class="hl-0">add</span><span class="hl-1"> @</span><span class="hl-0">securerpc</span><span class="hl-1">/</span><span class="hl-0">local</span><span class="hl-1">-</span><span class="hl-0">provider</span>
+</code></pre>
+
+<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
+  <h2>Usage</h2>
+</a>
+<p>The dashboard-provider can be used in place where you would use any other web3
+provider. See the examples below for using it with Ethers.js and Web3.js.</p>
+
+<a href="#ethersjs" id="ethersjs" style="color: inherit; text-decoration: none;">
+  <h3>Ethers.js</h3>
+</a>
+<pre><code class="language-js"><span class="hl-2">const</span><span class="hl-1"> { </span><span class="hl-3">DashboardProvider</span><span class="hl-1"> } = </span><span class="hl-4">require</span><span class="hl-1">(</span><span class="hl-5">&#39;@securerpc/local-provider&#39;</span><span class="hl-1">);</span><br/><span class="hl-2">const</span><span class="hl-1"> { </span><span class="hl-3">providers</span><span class="hl-1"> } = </span><span class="hl-4">require</span><span class="hl-1">(</span><span class="hl-5">&#39;ethers&#39;</span><span class="hl-1">);</span><br/><br/><span class="hl-2">const</span><span class="hl-1"> </span><span class="hl-3">dashboardProvider</span><span class="hl-1"> = </span><span class="hl-2">new</span><span class="hl-1"> </span><span class="hl-4">DashboardProvider</span><span class="hl-1">();</span><br/><span class="hl-2">const</span><span class="hl-1"> </span><span class="hl-3">ethersProvider</span><span class="hl-1"> = </span><span class="hl-2">new</span><span class="hl-1"> </span><span class="hl-0">providers</span><span class="hl-1">.</span><span class="hl-4">Web3Provider</span><span class="hl-1">(</span><span class="hl-0">dashboardProvider</span><span class="hl-1">);</span><br/><br/><span class="hl-2">const</span><span class="hl-1"> [</span><span class="hl-3">account</span><span class="hl-1">] = </span><span class="hl-6">await</span><span class="hl-1"> </span><span class="hl-0">ethersProvider</span><span class="hl-1">.</span><span class="hl-4">listAccounts</span><span class="hl-1">();</span>
+</code></pre>
+
+<a href="#web3js" id="web3js" style="color: inherit; text-decoration: none;">
+  <h3>Web3.js</h3>
+</a>
+<pre><code class="language-js"><span class="hl-2">const</span><span class="hl-1"> { </span><span class="hl-3">DashboardProvider</span><span class="hl-1"> } = </span><span class="hl-4">require</span><span class="hl-1">(</span><span class="hl-5">&#39;@securerpc/local-provider&#39;</span><span class="hl-1">);</span><br/><span class="hl-2">const</span><span class="hl-1"> </span><span class="hl-3">Web3</span><span class="hl-1"> = </span><span class="hl-4">require</span><span class="hl-1">(</span><span class="hl-5">&#39;web3&#39;</span><span class="hl-1">);</span><br/><br/><span class="hl-2">const</span><span class="hl-1"> </span><span class="hl-3">dashboardProvider</span><span class="hl-1"> = </span><span class="hl-2">new</span><span class="hl-1"> </span><span class="hl-4">DashboardProvider</span><span class="hl-1">();</span><br/><span class="hl-2">const</span><span class="hl-1"> </span><span class="hl-3">web3</span><span class="hl-1"> = </span><span class="hl-2">new</span><span class="hl-1"> </span><span class="hl-4">Web3</span><span class="hl-1">(</span><span class="hl-0">dashboardProvider</span><span class="hl-1">);</span><br/><br/><span class="hl-2">const</span><span class="hl-1"> [</span><span class="hl-3">account</span><span class="hl-1">] = </span><span class="hl-6">await</span><span class="hl-1"> </span><span class="hl-0">web3</span><span class="hl-1">.</span><span class="hl-0">eth</span><span class="hl-1">.</span><span class="hl-4">getAccounts</span><span class="hl-1">();</span>
+</code></pre>
+
+<a href="#configuration-options" id="configuration-options" style="color: inherit; text-decoration: none;">
+  <h3>Configuration options</h3>
+</a>
+<p>The <code>DashboardProvider</code> constructor takes a config object with a number of
+options.</p>
+<pre><code class="language-ts"><span class="hl-6">export</span><span class="hl-1"> </span><span class="hl-2">interface</span><span class="hl-1"> </span><span class="hl-7">DashboardProviderOptions</span><span class="hl-1"> {</span><br/><span class="hl-1">  </span><span class="hl-8">/** Host of the Dashboard (default: localhost) */</span><br/><span class="hl-1">  </span><span class="hl-0">dashboardHost</span><span class="hl-1">?: </span><span class="hl-7">string</span><span class="hl-1">;</span><br/><br/><span class="hl-1">  </span><span class="hl-8">/** Port of the Dashboard (default: 24012) */</span><br/><span class="hl-1">  </span><span class="hl-0">dashboardPort</span><span class="hl-1">?: </span><span class="hl-7">number</span><span class="hl-1">;</span><br/><br/><span class="hl-1">  </span><span class="hl-8">/** Number of seconds before a dashboard-provider request times out (default: 120) */</span><br/><span class="hl-1">  </span><span class="hl-0">timeoutSeconds</span><span class="hl-1">?: </span><span class="hl-7">number</span><span class="hl-1">;</span><br/><br/><span class="hl-1">  </span><span class="hl-8">/** Boolean indicating whether the connection to the dashboard is kept alive between requests (default: false) */</span><br/><span class="hl-1">  </span><span class="hl-0">keepAlive</span><span class="hl-1">?: </span><span class="hl-7">boolean</span><span class="hl-1">;</span><br/><br/><span class="hl-1">  </span><span class="hl-8">/** Boolean indicating whether debug output should be logged (default: false) */</span><br/><span class="hl-1">  </span><span class="hl-0">verbose</span><span class="hl-1">?: </span><span class="hl-7">boolean</span><span class="hl-1">;</span><br/><br/><span class="hl-1">  </span><span class="hl-8">/** Boolean indicating whether the dashboard should automatically get opened in the default browser (default: true) */</span><br/><span class="hl-1">  </span><span class="hl-0">autoOpen</span><span class="hl-1">?: </span><span class="hl-7">boolean</span><span class="hl-1">;</span><br/><span class="hl-1">}</span>
+</code></pre>
+
+<a href="#logging" id="logging" style="color: inherit; text-decoration: none;">
+  <h2>Logging</h2>
+</a>
+<p>When setting the dashboard-provider&#39;s <code>verbose</code> option to <code>true</code>, debug output
+is logged in the following &quot;debug&quot; namespaces</p>
+<ul>
+<li><code>msgbus:connections</code> - logs connections and disconnections of message bus
+publishers and subscribers</li>
+<li><code>msgbus:requests</code> - logs requests that get sent from publishers to subscribers</li>
+<li><code>msgbus:responses</code> - logs responses sent back from subscribers to publishers</li>
+<li><code>msgbus:errors</code> - logs errors that occur in the message bus</li>
+</ul>
+
+<a href="#development" id="development" style="color: inherit; text-decoration: none;">
+  <h2>Development</h2>
+</a>
+<p>The entire dashboard/local-provider stack consists of three separate packages:</p>
+<ul>
+<li><p><code>@securerpc/local-provider</code> contains the actual <code>Provider</code> interface that
+forwards requests to the dashboard.</p>
+</li>
+<li><p><code>@securerpc/dashboard</code> package contains a React app that receives incoming
+requests, displays them to the user, and then forwards them to the browser&#39;s
+injected web3 wallet.</p>
+</li>
+<li><p><code>@securerpc/msgbus</code> ties the two packages together with a message bus that
+relays requests and responses between the local-provider and the dashboard,
+using multiple WebSocket connections.</p>
+</li>
+</ul>
+
+<a href="#automated-testing" id="automated-testing" style="color: inherit; text-decoration: none;">
+  <h3>Automated testing</h3>
+</a>
+<p><code>test/</code> contains a few very simple tests that test basic functioning of the
+DashboardProvider + Message Bus + Dashboard infrastructure. It uses a mocked
+&quot;dashboard&quot; that rather than opening a browser window just forwards all requests
+to Ganache.</p>
+
+<a href="#license" id="license" style="color: inherit; text-decoration: none;">
+  <h2>License</h2>
+</a>
+<p><a href="./LICENSE.md">MIT Licensed</a></p>
+</div></div><div class="col-4 col-menu menu-sticky-wrap menu-highlight"><nav class="tsd-navigation primary"><ul><li class="current"><a href="modules.html">Exports</a></li></ul></nav><nav class="tsd-navigation secondary menu-sticky"><ul><li class="tsd-kind-class"><a href="classes/DashboardProvider.html" class="tsd-kind-icon">Dashboard<wbr/>Provider</a></li><li class="tsd-kind-interface"><a href="interfaces/DashboardProviderOptions.html" class="tsd-kind-icon">Dashboard<wbr/>Provider<wbr/>Options</a></li></ul></nav></div></div></div><footer class="with-border-bottom"><div class="container"><h2>Legend</h2><div class="tsd-legend-group"><ul class="tsd-legend"><li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li><li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li><li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li></ul><ul class="tsd-legend"><li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li><li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li></ul><ul class="tsd-legend"><li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li></ul></div><h2>Settings</h2><p>Theme <select id="theme"><option value="os">OS</option><option value="light">Light</option><option value="dark">Dark</option></select></p></div></footer><div class="container tsd-generator"><p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p></div><div class="overlay"></div><script src="assets/main.js"></script></body></html>
