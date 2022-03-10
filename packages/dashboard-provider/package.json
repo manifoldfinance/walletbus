@@ -8,11 +8,9 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsc",
+    "build": "npx tsc",
     "prepare": "yarn build",
-    "test": "jest --verbose",
-    "test:manual:basic-provider": "ts-node ./manual-test/manual-test.ts",
-    "test:manual:basic-rpc": "ts-node ./manual-test/manual-test-rpc.ts"
+    "test": "jest --verbose"
   },
   "repository": {
     "type": "git",
@@ -40,7 +38,6 @@
     "jest": "^27.4.5",
     "ts-jest": "^27.1.2",
     "typedoc": "^0.22.13",
-    "typedoc-plugin-markdown": "^3.11.14",
     "typescript": "^4.1.4",
     "web3": "^1.6.1"
   },
