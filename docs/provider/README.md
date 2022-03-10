@@ -1,50 +1,27 @@
-# @securerpc/walletbus
+@securerpc/local-provider / [Exports](modules.md)
 
-> @securerpc/walletbus
-
-[![pipeline](https://github.com/sambacha/schoolbus/actions/workflows/pipeline.yml/badge.svg)](https://github.com/sambacha/schoolbus/actions/workflows/pipeline.yml)
-[![turborepo - maintained with](https://img.shields.io/static/v1?label=turborepo&message=maintained+with&color=blue&logo=vercel)](https://turborepo.org/docs)
-
-- [Abstract](#abstract)
-- [Quickstart](#quickstart)
-- [Installation](#installation)
-- [Usage](#usage)
-  - [Ethers.js](#ethersjs)
-  - [Web3.js](#web3js)
-  - [Configuration options](#configuration-options)
-- [Logging](#logging)
-- [Development](#development)
-  - [Automated testing](#automated-testing)
-- [License](#license)
-
-## Abstract
+# [`@securerpc/local-provider`](#)
 
 `@securerpc/local-provider` enables communication between command-line or
-desktop applications and browser-based Ethereum wallets such as Metamask.
+desktop applications and browser-based Ethereum wallets such as Metamask. One
+important use case is that it allows you to use your Metamask wallet with smart
+contract development tools such as Foundry or Hardhat.
 
-One important use case is that it allows you to use your Metamask wallet with
-smart contract development tools such as Foundry or Hardhat.
-
-<!--
 > TODO **Note**: @securerpc/local-provider automatically starts and stops a
 > @securerpc/dashboard instance. To have more control over this dashboard
 > instance, please use the [`securerpc dashboard`] command and its associated
 > RPC URL instead of the @securerpc/local-provider.
--->
 
-## Quickstart
-
-To build the monorepo (>1m)
-
-```shell
-./exec.sh
-```
-
-To test transactions on Rinkeby Test Network (ChainId=4)
-
-```shell
-./run.sh
-```
+- [@securerpc/local-provider](#)
+  - [Installation](#installation)
+  - [Usage](#usage)
+    - [Ethers.js](#ethersjs)
+    - [Web3.js](#web3js)
+    - [Configuration options](#configuration-options)
+  - [Logging](#logging)
+  - [Development](#development)
+    - [Automated testing](#automated-testing)
+  - [License](#license)
 
 ## Installation
 
@@ -147,5 +124,3 @@ to Ganache.
 ## License
 
 [MIT Licensed](./LICENSE.md)
-
-> Forked from Truffle/Dashboard

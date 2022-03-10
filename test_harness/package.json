@@ -1,21 +1,25 @@
 {
-  "name": "test_harness",
+  "name": "__testenv__",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+   "private": true,
+  "main": "dist/src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "build": "npx tsc"
   },
   "keywords": [],
   "author": "sam bacha",
   "license": "ISC",
   "dependencies": {
-    "@ethereumjs/tx": "^3.5.0",
-    "@ethersproject/bignumber": "^5.5.0",
-    "axios": "^0.26.0",
-    "hardhat": "^2.9.1",
-    "readline": "^1.3.0",
-    "ethereumjs-tx": "^1.3.7",
-    "web3": "^1.0.0-beta.55"
+    "chalk": "^4.1.2",
+    "debug": "^4.3.3",
+    "ethers": "^5.6.0"
+  },
+  "devDependencies": {
+    "@types/node": "^14.18.12",
+    "ts-node": "^10.7.0",
+    "ts-node-dev": "^1.1.8",
+    "tslib": "^2.3.1",
+    "typescript": "^4.4.4"
   }
 }

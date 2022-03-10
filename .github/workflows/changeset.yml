@@ -1,0 +1,58 @@
+name: changeset
+
+on:
+  push:
+    branches:
+      - master
+
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: ['14.x']
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - uses: actions/cache@v2
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+
+      - name: webpage install, build, and test
+        uses: actions/setup-node@v2
+
+      - run: yarn install
+        if: steps.yarn-cache.outputs.cache-hit != 'true'
+        id: install
+
+      - run: npm i -g lerna
+        id: lerna
+
+      - run: lerna bootstrap
+        id: bootstrap
+
+      - run: yarn run build
+        id: turbo
+
+      - run: lerna exec npm pack
+        id: pack
+
+      - run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
+
+      - name: Create Release Pull Request
+        uses: changesets/action@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
