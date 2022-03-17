@@ -15,6 +15,14 @@
     "dist/bin"
   ],
   "dependencies": {
+    "@chakra-ui/icons": "^1.0.15",
+    "@chakra-ui/react": "^1.6.6",
+    "@emotion/react": "^11.4.1",
+    "@emotion/styled": "^11.3.0",
+    "@fontsource/inter": "^4.5.0",
+    "@metamask/jazzicon": "^2.0.0",
+    "@usedapp/core": "^0.4.4",
+    "framer-motion": "^4.1.17",
     "@securerpc/msgbus": "^0.2.0",
     "cors": "^2.8.5",
     "debug": "^4.3.2",
