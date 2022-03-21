@@ -1,24 +1,10 @@
 import * as path from 'path';
-import Provider from '@truffle/provider';
-import TruffleConfig from './';
-
 export const getInitialConfig = ({
-  truffleDirectory,
-  workingDirectory,
   network,
 }: {
-  truffleDirectory?: string;
-  workingDirectory?: string;
   network?: string;
 }) => {
-  const truffle_directory =
-    truffleDirectory || path.resolve(path.join(__dirname, '../'));
-  const working_directory = workingDirectory || process.cwd();
-
   return {
-    truffle_directory,
-    working_directory,
-    network,
     networks: {
       dashboard: {
         network_id: '*',
@@ -36,47 +22,11 @@ export const getInitialConfig = ({
     from: null,
     confirmations: 0,
     timeoutBlocks: 0,
-    production: false,
-    skipDryRun: false,
-    build: null,
-    resolver: null,
-    artifactor: null,
     quiet: false,
     dashboard: {
       host: 'localhost',
       port: 24012,
       verbose: false,
-    },
-    ethpm: {
-      ipfs_host: 'ipfs.infura.io',
-      ipfs_protocol: 'https',
-      registry: '0x8011df4830b4f696cd81393997e5371b93338878',
-      install_provider_uri:
-        'https://ropsten.infura.io/v3/26e88e46be924823983710becd929f36',
-    },
-    ens: {
-      enabled: false,
-      registryAddress: null,
-    },
-    mocha: {
-      bail: false,
-      grep: null,
-    },
-    compilers: {
-      solc: {
-        settings: {
-          //Note: The default solc version is *not* set here!
-          //It's set in compilerSupplier/index.js in compile-solidity
-          optimizer: {
-            enabled: false,
-            runs: 200,
-          },
-          remappings: [],
-        },
-      },
-      vyper: {
-        settings: {},
-      },
     },
     console: {
       require: null,
@@ -88,60 +38,22 @@ export const getInitialConfig = ({
 export const configProps = ({
   configObject,
 }: {
-  configObject: TruffleConfig;
+  configObject: DashboardConfig;
 }) => {
   const resolveDirectory = (value: string): string =>
     path.resolve(configObject.working_directory, value);
 
   return {
     // These are already set.
-    truffle_directory() {},
     working_directory() {},
     network() {},
     networks() {},
     verboseRpc() {},
-    build() {},
-    resolver() {},
-    artifactor() {},
     dashboard() {},
-    ethpm() {},
     logger() {},
-    compilers() {},
-    ens() {},
     console() {},
-    mocha() {},
     quiet() {},
-
-    build_directory: {
-      default: () => path.join(configObject.working_directory, 'build'),
-      transform: resolveDirectory,
-    },
-    contracts_directory: {
-      default: () => path.join(configObject.working_directory, 'contracts'),
-      transform: resolveDirectory,
-    },
-    contracts_build_directory: {
-      default: () => path.join(configObject.build_directory, 'contracts'),
-      transform: resolveDirectory,
-    },
-    migrations_directory: {
-      default: () => path.join(configObject.working_directory, 'migrations'),
-      transform: resolveDirectory,
-    },
-    migrations_file_extension_regexp() {
-      return /^\.(js|es6?)$/;
-    },
-    test_directory: {
-      default: () => path.join(configObject.working_directory, 'test'),
-      transform: resolveDirectory,
-    },
-    test_file_extension_regexp() {
-      return /.*\.(js|ts|es|es6|jsx|sol)$/;
-    },
-    example_project_directory: {
-      default: () => path.join(configObject.truffle_directory, 'example'),
-      transform: resolveDirectory,
-    },
+    
     network_id: {
       get() {
         try {
