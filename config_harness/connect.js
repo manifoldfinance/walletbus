@@ -1,5 +1,4 @@
-const { detectConfigOrDefault } = require("../utils/utils");
-
+// const { detectConfigOrDefault } = require("../utils/utils");
 module.exports = {
   command: "dashboard",
   description:
@@ -41,7 +40,7 @@ module.exports = {
     const { DashboardServer } = require("@securerpc/dashboard");
     const address = require("address");
 
-    const config = detectConfigOrDefault(options);
+ //   const config = detectConfigOrDefault(options);
 
     const port = options.port || config.dashboard.port;
     const host = options.host || config.dashboard.host;
@@ -53,6 +52,7 @@ module.exports = {
     await dashboardServer.start();
 
     if (host === "0.0.0.0") {
+      // NOTE: Nodejs 16 is using ipv6
       // Regex taken from react-scripts to check that the address is a private IP, otherwise we discard it
       // https://en.wikipedia.org/wiki/Private_network#Private_IPv4_address_spaces
       let lanAddress = /^10[.]|^172[.](1[6-9]|2[0-9]|3[0-1])[.]|^192[.]168[.]/.test(address.ip())
@@ -67,7 +67,7 @@ module.exports = {
       );
 
       console.log(
-        `DashboardProvider RPC endpoint running at http://localhost:${port}/rpc`
+        `SecureRPC Provider endpoint running at http://localhost:${port}/rpc`
       );
       lanAddress && console.log(
         `                                          http://${lanAddress}:${port}/rpc`
@@ -77,7 +77,7 @@ module.exports = {
         `SecureRPC Dashboard running at http://${host}:${port}`
       );
       console.log(
-        `DashboardProvider RPC endpoint running at http://${host}:${port}/rpc`
+        `SecureRPC endpoint running at http://${host}:${port}/rpc`
       );
     }
 
