@@ -2,11 +2,6 @@ name: pipeline
 
 on:
   pull_request:
-    branches:
-      - 'release-*'
-      - 'master'
-    tags-ignore:
-      - '*'
 
 concurrency:
   group: ci-tests-${{ github.ref }}-1
