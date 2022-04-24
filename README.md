@@ -1,8 +1,8 @@
-# @securerpc/walletbus
+# `@securerpc/walletbus`
 
-> @securerpc/walletbus
+> Fork of Truffle's Dashboard Provider w/o Truffle
 
-[![pipeline](https://github.com/sambacha/schoolbus/actions/workflows/pipeline.yml/badge.svg)](https://github.com/sambacha/schoolbus/actions/workflows/pipeline.yml)
+[![pipeline](https://github.com/manifoldfinance/walletbus/actions/workflows/pipeline.yml/badge.svg)](https://github.com/manifoldfinance/walletbus/actions/workflows/pipeline.yml)
 [![turborepo - maintained with](https://img.shields.io/static/v1?label=turborepo&message=maintained+with&color=blue&logo=vercel)](https://turborepo.org/docs)
 
 - [Abstract](#abstract)
@@ -18,6 +18,8 @@
 - [License](#license)
 
 ## Abstract
+
+> NOTE Mostly copied from Truffle
 
 `@securerpc/local-provider` enables communication between command-line or
 desktop applications and browser-based Ethereum wallets such as Metamask.
