@@ -7,7 +7,7 @@
     "url": "https://github.com/manifoldfinnace/walletbus.git",
     "directory": "packages/dashboard"
   },
-  "version": "0.2.0",
+  "version": "0.3.0",
   "main": "dist/lib/index.js",
   "types": "dist/lib/index.d.ts",
   "files": [
@@ -15,7 +15,7 @@
     "dist/bin"
   ],
   "dependencies": {
-    "@securerpc/msgbus": "^0.2.0",
+    "@securerpc/msgbus": "^0.3.0",
     "cors": "^2.8.5",
     "debug": "^4.3.2",
     "dotenv": "^16.0.0",
