@@ -1,7 +1,7 @@
 {
-  "name": "schoolbus",
+  "name": "walletbus-monorepo",
   "version": "1.0.0",
-  "description": "",
+  "description": "monorepo for walletbus",
   "private": true,
   "workspaces": [
     "packages/*"
@@ -14,17 +14,10 @@
     "test:ci": "jest -u --passWithNoTests --coverageDirectory .github/coverage",
     "format": "npx prettier --config .prettierrc.json --write \"**/*.{ts,tsx,md}\""
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/sambacha/schoolbus.git"
-  },
   "keywords": [],
   "author": "SEE CONTRIBUTORS",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/sambacha/schoolbus/issues"
   },
-  "homepage": "https://github.com/sambacha/schoolbus#readme",
   "devDependencies": {
     "@changesets/cli": "^2.21.1",
     "@ethersproject/address": "^5.6.0",

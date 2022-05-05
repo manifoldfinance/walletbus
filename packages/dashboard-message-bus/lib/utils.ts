@@ -137,7 +137,7 @@ export const connectToMessageBus = (
 };
 
 export const getMessageBusPorts = async (
-  dashboardPort:  number = 8564,
+  dashboardPort: number = 8564,
   dashboardHost: string = 'localhost',
   retries: number = 5,
 ): Promise<PortsConfig> => {
