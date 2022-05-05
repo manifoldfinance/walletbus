@@ -17,7 +17,6 @@
   "keywords": [],
   "author": "SEE CONTRIBUTORS",
   "license": "MIT",
-  },
   "devDependencies": {
     "@changesets/cli": "^2.21.1",
     "@ethersproject/address": "^5.6.0",
