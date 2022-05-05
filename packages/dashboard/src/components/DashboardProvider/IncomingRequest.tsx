@@ -36,7 +36,7 @@ function IncomingRequest({ provider, socket, request, setRequests }: Props) {
         id: request.payload.id,
         error: {
           code: 4001,
-          message: 'User rejected @truffle/dashboard-provider request',
+          message: 'User rejected @securerpcwalletbus-provider request',
         },
       },
     };

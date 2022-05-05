@@ -16,7 +16,7 @@
       ],
       "dependsOn": []
     },
-    "lint": {
+    "start": {
       "dependsOn": [
         "^build"
       ],
