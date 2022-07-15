@@ -47,5 +47,6 @@
   },
   "browser": {
     "ws": false
-  }
+  },
+  "gitHead": "915ca51e0f2ed9c5fea14ceb8f414d039a1514ce"
 }
