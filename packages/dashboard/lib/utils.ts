@@ -1,6 +1,6 @@
 import { jsonToBase64 } from '@securerpc/msgbus';
 import { spawn } from 'child_process';
-import type { DashboardServerOptions } from './interfaceServer';
+import type { DashboardServerOptions } from './DashboardServer';
 import path from 'path';
 
 export const startDashboardInBackground = (options: DashboardServerOptions) => {

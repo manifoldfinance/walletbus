@@ -1,8 +1,6 @@
-{
-  "compilerOptions": {
+{  "compilerOptions": {
     "jsx": "react",
     "sourceMap": true,
-    "incremental": true,
     "declaration": true,
     "esModuleInterop": true,
     "lib": ["esnext", "dom"],
@@ -17,8 +15,8 @@
     "strictNullChecks": true,
     "rootDir": ".",
     "baseUrl": ".",
-    "types": ["jest", "react", "node"]
+    "types": ["node"]
   },
-  "include": ["lib/**/*", "test/**/*"],
+  "include": ["lib/**/*"],
   "exclude": ["node_modules"]
 }

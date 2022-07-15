@@ -1,4 +1,1 @@
-/**
- * [start Dev Server]
- */
 export {};
