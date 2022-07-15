@@ -107,7 +107,7 @@ export const sendAndAwait = (socket: WebSocket, message: Message) => {
 };
 
 export const connectToMessageBusWithRetries = async (
-  port: number,
+  port: number = 8564,
   host: string = 'localhost',
   retries: number = 50,
 ): Promise<WebSocket> => {
@@ -125,7 +125,7 @@ export const connectToMessageBusWithRetries = async (
 };
 
 export const connectToMessageBus = (
-  port: number,
+  port: number = 8564,
   host: string = 'localhost',
 ) => {
   const socket = new WebSocket(`ws://${host}:${port}`);
@@ -139,7 +139,7 @@ export const connectToMessageBus = (
 };
 
 export const getMessageBusPorts = async (
-  dashboardPort: number,
+  dashboardPort: number = 8564,
   dashboardHost: string = 'localhost',
   retries: number = 5,
 ): Promise<PortsConfig> => {
