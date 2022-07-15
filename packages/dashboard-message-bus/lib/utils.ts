@@ -6,6 +6,8 @@ import axios from 'axios';
 
 any.shim();
 
+export class MessageBusConnectionError extends Error {}
+
 /**
  * Convert any JS object or value to a base64 representation of it
  */
@@ -105,7 +107,7 @@ export const sendAndAwait = (socket: WebSocket, message: Message) => {
 };
 
 export const connectToMessageBusWithRetries = async (
-  port: number = 8564,
+  port: number,
   host: string = 'localhost',
   retries: number = 50,
 ): Promise<WebSocket> => {
@@ -123,7 +125,7 @@ export const connectToMessageBusWithRetries = async (
 };
 
 export const connectToMessageBus = (
-  port: number = 8564,
+  port: number,
   host: string = 'localhost',
 ) => {
   const socket = new WebSocket(`ws://${host}:${port}`);
@@ -137,7 +139,7 @@ export const connectToMessageBus = (
 };
 
 export const getMessageBusPorts = async (
-  dashboardPort: number = 8564,
+  dashboardPort: number,
   dashboardHost: string = 'localhost',
   retries: number = 5,
 ): Promise<PortsConfig> => {
@@ -152,7 +154,7 @@ export const getMessageBusPorts = async (
     }
   }
 
-  throw new Error(
-    `[ERROR]: Unable to connect to dashboard at http://${dashboardHost}:${dashboardPort}/ports`,
+  throw new MessageBusConnectionError(
+    `Could not connect to dashboard at http://${dashboardHost}:${dashboardPort}/ports`,
   );
 };

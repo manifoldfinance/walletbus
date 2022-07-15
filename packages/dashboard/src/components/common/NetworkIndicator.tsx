@@ -7,13 +7,12 @@ interface Props {
 
 function NetworkIndicator({ chainId }: Props) {
   const [networkName, setNetworkName] = useState<string>(`Chain ID ${chainId}`);
-  const textColor = chainId === 1 ? 'text-dashboard-red' : '';
+  const textColor = chainId === 1 ? 'text-truffle-red' : '';
 
   useEffect(() => {
     const updateNetwork = async (chainId: number) => {
       const connectedNetworkName = await getNetworkName(chainId);
       setNetworkName(connectedNetworkName);
-      console.log(connectedNetworkName);
     };
 
     if (!chainId) return;

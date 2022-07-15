@@ -1,5 +1,2 @@
-/**
- * @package terminal-interface
- */
-export * from './interfaceServer';
+export * from './DashboardServer';
 export * from './utils';

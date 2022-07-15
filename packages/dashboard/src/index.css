@@ -3,25 +3,14 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
-
-@import url('https://fonts.googleapis.com/css2?family=Inconsolata&display=swap');
-
-/* 
-code {
-  font-family: Hack, monospace;
-}
-https://cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/fonts/hack-regular.woff2
-https://cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/fonts/hack-regular.woff
-*/
+@import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
 
 body {
   margin: 0;
-  font-family: 'Inter',
-   sans-serif;
+  font-family: "Oswald", sans-serif;
 }
 
 code {
-  font-family: 'Inconsolata',
-   monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
 }

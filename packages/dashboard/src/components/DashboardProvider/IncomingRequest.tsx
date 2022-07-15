@@ -4,6 +4,7 @@ import { handleDashboardProviderRequest, respond } from '../../utils/utils';
 import Button from '../common/Button';
 import Card from '../common/Card';
 import { DashboardProviderMessage } from '@securerpc/msgbus';
+import { useState } from 'react';
 
 interface Props {
   request: DashboardProviderMessage;
@@ -13,10 +14,19 @@ interface Props {
       | ((requests: DashboardProviderMessage[]) => DashboardProviderMessage[]),
   ) => void;
   provider: any;
+  connector: any;
   socket: WebSocket;
 }
 
-function IncomingRequest({ provider, socket, request, setRequests }: Props) {
+function IncomingRequest({
+  provider,
+  connector,
+  socket,
+  request,
+  setRequests,
+}: Props) {
+  const [disable, setDisable] = useState(false);
+
   const removeFromRequests = () => {
     setRequests((previousRequests) =>
       previousRequests.filter((other) => other.id !== request.id),
@@ -24,7 +34,7 @@ function IncomingRequest({ provider, socket, request, setRequests }: Props) {
   };
 
   const process = async () => {
-    await handleDashboardProviderRequest(request, provider, socket);
+    await handleDashboardProviderRequest(request, provider, connector, socket);
     removeFromRequests();
   };
 
@@ -36,7 +46,7 @@ function IncomingRequest({ provider, socket, request, setRequests }: Props) {
         id: request.payload.id,
         error: {
           code: 4001,
-          message: 'User rejected @securerpcwalletbus-provider request',
+          message: 'User rejected walletbus request',
         },
       },
     };
@@ -104,9 +114,19 @@ function IncomingRequest({ provider, socket, request, setRequests }: Props) {
 
   const body = <div>{formatDashboardProviderRequestParameters(request)}</div>;
 
-  const footer = (
+  const footer = disable ? (
     <div className="flex justify-start items-center gap-2">
-      <Button onClick={process} text="Process" />
+      <Button disabled onClick={() => {}} text="Processing..." />
+    </div>
+  ) : (
+    <div className="flex justify-start items-center gap-2">
+      <Button
+        onClick={() => {
+          process();
+          setDisable(true);
+        }}
+        text="Process"
+      />
       <Button onClick={reject} text="Reject" />
     </div>
   );
