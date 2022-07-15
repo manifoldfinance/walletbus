@@ -1,6 +1,6 @@
 {
   "name": "@securerpc/msgbus",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "description": "Message bus that handles communication between the Dashboard and its components",
   "main": "dist/lib/index.js",
   "types": "dist/lib/index.d.ts",
