@@ -45,8 +45,8 @@
     "web3": "^1.6.1"
   },
   "dependencies": {
-    "@securerpc/dashboard": "^0.1.1",
-    "@securerpc/msgbus": "^0.1.0",
+    "@securerpc/dashboard": "^0.3.1",
+    "@securerpc/msgbus": "^0.2.0",
     "debug": "^4.3.3",
     "delay": "^5.0.0",
     "isomorphic-ws": "^4.0.1",

@@ -1,1 +1,1 @@
-export * from './DashboardProvider';
+export * from './DashboardServer';
