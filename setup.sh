@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 set -ex
 
 echo "Installing..."
@@ -13,3 +13,4 @@ echo "Access dashboard at http://localhost:3000 "
 echo "Access RPC at http://localhost:24012/rpc "
 sleep 1
 yarn run start
+

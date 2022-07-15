@@ -1,3 +1,7 @@
+*.tgz
+*.zip
+*.sha256sum
+*.env
 packages/dashboard/dist
 *.log
 packages/**/node_modules

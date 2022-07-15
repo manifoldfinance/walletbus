@@ -1,6 +1,6 @@
 {
   "name": "@securerpc/local-provider",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "description": "Web3 provider that uses a browser-based web3 wallet through the Dasboard",
   "main": "dist/lib/index.js",
   "types": "dist/lib/index.d.ts",
