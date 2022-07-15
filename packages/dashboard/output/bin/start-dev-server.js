@@ -1,17 +1,6 @@
 "use strict";
-/**
- * [start Dev Server]
- */
 Object.defineProperty(exports, "__esModule", { value: true });
-const interfaceServer_1 = require("../lib/interfaceServer");
-/**
- * @const options
- * @param port
- * @param host
- * @param rpc
- * @param verbose
- * @param autoOpen
- */
+const DashboardServer_1 = require("../lib/DashboardServer");
 const options = {
     port: 24012,
     host: 'localhost',
@@ -19,14 +8,6 @@ const options = {
     rpc: true,
     autoOpen: false,
 };
-/**
- * [dashboardServer]
- *
- * @param   {[type]}  options  [options description]
- *
- * @return  {[type]}           [return description]
- */
-const dashboardServer = new interfaceServer_1.DashboardServer(options);
-console.log('dashboardServer', dashboardServer);
+const dashboardServer = new DashboardServer_1.DashboardServer(options);
 dashboardServer.start();
 //# sourceMappingURL=start-dev-server.js.map

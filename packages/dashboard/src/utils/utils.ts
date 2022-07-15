@@ -28,13 +28,37 @@ export const isUnsupportedRequest = (request: DashboardProviderMessage) =>
 
 export const forwardDashboardProviderRequest = async (
   provider: any,
+  connector: any,
   payload: JSONRPCRequestPayload,
 ) => {
+  console.debug('forwardDashboardProviderRequest:input', {
+    id: payload.id,
+    provider,
+    connector,
+    payload,
+  });
   const sendAsync = promisify(provider.sendAsync.bind(provider));
   try {
-    const response = await sendAsync(payload);
-    return response;
+    let result = await sendAsync(payload);
+    let connectorId: string | undefined = connector?.id;
+    console.debug('forwardDashboardProviderRequest:result', {
+      id: payload.id,
+      payload,
+      result,
+    });
+    if (connectorId === 'injected') {
+      // we should get full RPC json payloads returned.
+      return result;
+    } else {
+      // we may just get the result object itself, no RPC wrapper.
+      return {
+        jsonrpc: payload.jsonrpc,
+        id: payload.id,
+        result,
+      };
+    }
   } catch (error) {
+    console.error(error);
     return {
       jsonrpc: payload.jsonrpc,
       id: payload.id,
@@ -46,17 +70,18 @@ export const forwardDashboardProviderRequest = async (
 export const handleDashboardProviderRequest = async (
   request: DashboardProviderMessage,
   provider: any,
+  connector: any,
   responseSocket: WebSocket,
 ) => {
   const responsePayload = await forwardDashboardProviderRequest(
     provider,
+    connector,
     request.payload,
   );
   const response = {
     id: request.id,
     payload: responsePayload,
   };
-
   respond(response, responseSocket);
 };
 
@@ -64,10 +89,10 @@ export const respondToUnsupportedRequest = (
   request: DashboardProviderMessage,
   responseSocket: WebSocket,
 ) => {
-  const defaultMessage = `Method "${request.payload.method}" is unsupported by @securerpcwalletbus-provider`;
+  const defaultMessage = `Method "${request.payload.method}" is unsupported by walletbus`;
   const customMessages: { [index: string]: string } = {
     eth_sign:
-      'Method "eth_sign" is unsupported by @securerpcwalletbus-provider, please use "personal_sign" instead',
+      'Method "eth_sign" is unsupported by walletbus, please use "personal_sign" instead',
   };
 
   const message = customMessages[request.payload.method] ?? defaultMessage;
@@ -91,9 +116,6 @@ export const respond = (response: any, socket: WebSocket) => {
   socket.send(encodedResponse);
 };
 
-export const getLibrary = (provider: any) =>
-  new providers.Web3Provider(provider);
-
 export const getNetworkName = async (chainId: number) => {
   const { data: chainList } = await axios.get(
     'https://chainid.network/chains.json',
@@ -104,26 +126,25 @@ export const getNetworkName = async (chainId: number) => {
 };
 
 export const getDisplayName = async (
-  library: providers.Web3Provider,
+  provider: providers.BaseProvider,
   address: string,
 ) => {
-  const ensName = await reverseLookup(library, address);
+  const ensName = await reverseLookup(provider, address);
   const shortenedAccount = shortenAddress(address);
-  const displayName = ensName ?? shortenedAccount;
-  return displayName;
+  return ensName ?? shortenedAccount;
 };
 
 export const reverseLookup = async (
-  library: providers.Web3Provider,
+  provider: providers.BaseProvider,
   address: string,
 ) => {
   try {
-    return await library.lookupAddress(address);
+    return await provider.lookupAddress(address);
   } catch {
     return undefined;
   }
 };
 
 export const shortenAddress = (address: string) => {
-  return `${address.substr(0, 6)}...${address.substr(address.length - 4, 4)}`;
+  return `${address.slice(0, 6)}...${address.slice(-4)}`;
 };
